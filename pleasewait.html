@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face {
+    font-family: "WithMyWoes";
+    src: url("file:///C:/Users/User/OneDrive/Desktop/USB/fonts/WithMyWoes.ttf") format("truetype");
+}
+
+body {
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+.loading {
+    font-family: "WithMyWoes", sans-serif;
+    color: white;
+    font-size: 64px;
+    text-align: center;
+}
+
+.loading::after {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    text-align: left;
+    animation: dots 1.5s steps(4,end) infinite;
+}
+
+@keyframes dots {
+    0%   { content: ""; }
+    25%  { content: "."; }
+    50%  { content: ".."; }
+    75%  { content: "..."; }
+    100% { content: ""; }
+}
+</style>
+</head>
+<body>
+<div class="loading">Please Wait</div>
+</body>
+</html>
