@@ -25,6 +25,18 @@
       },
       "sound": null,
       "durationMs": 5000
+    },
+    {
+      "id": "crowd_cheer",
+      "label": "Crowd Cheer",
+      "category": "sounds",
+      "enabled": true,
+      "visual": null,
+      "sound": {
+        "file": "assets/sounds/crowd.mp3",
+        "volume": 0.7
+      },
+      "durationMs": 5000
     }
   ]
 }
