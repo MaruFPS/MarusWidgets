@@ -3,19 +3,28 @@
   "baseUrl": "https://raw.githubusercontent.com/MaruFPS/MarusWidgets/main/channel-point-effects/",
   "effects": [
     {
-      "id": "test_meme",
-      "label": "Test Meme",
+      "id": "twerking_tina",
+      "label": "Twerking Tina",
       "category": "memes",
       "enabled": true,
       "visual": {
-        "type": "video",
-        "file": "assets/memes/test-meme.webm"
+        "type": "gif",
+        "file": "assets/memes/twerking-tina.gif"
       },
-      "sound": {
-        "file": "assets/sounds/test-sound.mp3",
-        "volume": 0.7
+      "sound": null,
+      "durationMs": 5000
+    },
+    {
+      "id": "vibey_sponge",
+      "label": "Vibey Sponge",
+      "category": "memes",
+      "enabled": true,
+      "visual": {
+        "type": "gif",
+        "file": "assets/memes/vibey-sponge.gif"
       },
-      "durationMs": 4000
+      "sound": null,
+      "durationMs": 5000
     }
   ]
 }
