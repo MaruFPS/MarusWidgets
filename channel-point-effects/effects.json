@@ -34,9 +34,9 @@
       "visual": null,
       "sound": {
         "file": "assets/sounds/crowd.mp3",
-        "volume": 0.7
+        "volume": 0.5
       },
-      "durationMs": 5000
+      "durationMs": 3000
     }
   ]
 }
