@@ -69,6 +69,19 @@
   "endOffsetMs": 10
 },
     {
+  "id": "make_it_rain",
+  "label": "Make It Rain",
+  "category": "screen-effects",
+  "enabled": true,
+  "visual": {
+    "type": "video",
+    "file": "assets/screen-effects/make-it-rain.webm",
+    "muted": true
+  },
+  "sound": null,
+  "durationMs": 5000
+},
+    {
   "id": "skeledance",
   "label": "Skeledance",
   "category": "screen-effects",
