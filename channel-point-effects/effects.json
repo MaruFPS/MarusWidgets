@@ -50,6 +50,16 @@
   },
   "sound": null,
   "durationMs": 5000
-}
+  },
+    {
+  "id": "stars",
+  "label": "Stars",
+  "category": "screen-effects",
+  "enabled": true,
+  "visual": {
+    "type": "video",
+    "file": "assets/screen-effects/stars.webm",
+    "muted": true
+  }
   ]
 }
