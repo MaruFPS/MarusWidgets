@@ -48,7 +48,10 @@
         "file": "assets/screen-effects/confetti.webm",
         "muted": true
       },
-      "sound": null,
+      "sound": {
+        "file": "assets/sounds/partyblower.mp3",
+        "volume": 0.5
+      },
       "durationMs": 5000
     },
     {
