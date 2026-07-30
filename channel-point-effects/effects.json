@@ -37,6 +37,19 @@
         "volume": 0.5
       },
       "durationMs": 3000
-    }
+    },
+    {
+  "id": "confetti",
+  "label": "Confetti",
+  "category": "screen-effects",
+  "enabled": true,
+  "visual": {
+    "type": "video",
+    "file": "assets/screen-effects/confetti.webm",
+    "muted": true
+  },
+  "sound": null,
+  "durationMs": 5000
+}
   ]
 }
