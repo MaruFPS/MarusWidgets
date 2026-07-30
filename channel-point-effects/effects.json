@@ -75,7 +75,7 @@
   "enabled": true,
   "visual": {
     "type": "video",
-    "file": "assets/screen-effects/make-it-rain.webm",
+    "file": "assets/screen-effects/make it rain.webm",
     "muted": true
   },
   "sound": null,
