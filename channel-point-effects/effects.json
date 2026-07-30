@@ -64,6 +64,20 @@
   "sound": null,
   "durationMs": 5000,
   "endOffsetMs": 10
+},
+    {
+  "id": "skeledance",
+  "label": "Skeledance",
+  "category": "screen-effects",
+  "enabled": true,
+  "visual": {
+    "type": "video",
+    "file": "assets/screen-effects/skeledance.webm",
+    "muted": true
+  },
+  "sound": null,
+  "durationMs": 5000,
+  "endOffsetMs": null
 }
   ]
 }
