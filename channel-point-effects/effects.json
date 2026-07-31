@@ -26,6 +26,35 @@
       "sound": null,
       "durationMs": 5000
     },
+    ,
+{
+  "id": "party_time",
+  "label": "Party Time",
+  "category": "screen-effects",
+  "enabled": true,
+  "visual": {
+    "type": "video",
+    "file": "assets/screen-effects/party time.webm",
+    "muted": false
+  },
+  "sound": null,
+  "durationMs": 5000,
+  "endOffsetMs": null
+},
+{
+  "id": "shark",
+  "label": "Shark",
+  "category": "screen-effects",
+  "enabled": true,
+  "visual": {
+    "type": "video",
+    "file": "assets/screen-effects/Shark.webm",
+    "muted": false
+  },
+  "sound": null,
+  "durationMs": 5000,
+  "endOffsetMs": null
+},
     {
       "id": "crowd_cheer",
       "label": "Crowd Cheer",
