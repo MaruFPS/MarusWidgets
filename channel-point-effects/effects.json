@@ -50,7 +50,7 @@
     "type": "video",
     "file": "assets/screen-effects/Sharkmode.webm",
     "muted": false,
-    "volume": 0.5
+    "volume": 0.2
   },
   "sound": null,
   "durationMs": 7050,
