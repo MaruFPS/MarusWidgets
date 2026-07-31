@@ -26,8 +26,7 @@
       "sound": null,
       "durationMs": 5000
     },
-    ,
-{
+    {
   "id": "party_time",
   "label": "Party Time",
   "category": "screen-effects",
