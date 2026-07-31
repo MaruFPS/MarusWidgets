@@ -27,33 +27,33 @@
       "durationMs": 5000
     },
     {
-  "id": "party_time",
-  "label": "Party Time",
-  "category": "screen-effects",
-  "enabled": true,
-  "visual": {
-    "type": "video",
-    "file": "assets/screen-effects/party time.webm",
-    "muted": false
-  },
-  "sound": null,
-  "durationMs": 5000,
-  "endOffsetMs": null
-},
-{
-  "id": "shark",
-  "label": "Shark",
-  "category": "screen-effects",
-  "enabled": true,
-  "visual": {
-    "type": "video",
-    "file": "assets/screen-effects/Shark.webm",
-    "muted": false
-  },
-  "sound": null,
-  "durationMs": 5000,
-  "endOffsetMs": null
-},
+      "id": "party_time",
+      "label": "Party Time",
+      "category": "screen-effects",
+      "enabled": true,
+      "visual": {
+        "type": "video",
+        "file": "assets/screen-effects/party time.webm",
+        "muted": false
+      },
+      "sound": null,
+      "durationMs": 5000,
+      "endOffsetMs": null
+    },
+    {
+      "id": "shark",
+      "label": "Shark",
+      "category": "screen-effects",
+      "enabled": true,
+      "visual": {
+        "type": "video",
+        "file": "assets/screen-effects/Shark.webm",
+        "muted": false
+      },
+      "sound": null,
+      "durationMs": 5000,
+      "endOffsetMs": null
+    },
     {
       "id": "crowd_cheer",
       "label": "Crowd Cheer",
@@ -83,45 +83,45 @@
       "durationMs": 5000
     },
     {
-  "id": "stars",
-  "label": "Stars",
-  "category": "screen-effects",
-  "enabled": true,
-  "visual": {
-    "type": "video",
-    "file": "assets/screen-effects/stars.webm",
-    "muted": true
-  },
-  "sound": null,
-  "durationMs": 5000,
-  "endOffsetMs": 10
-},
+      "id": "stars",
+      "label": "Stars",
+      "category": "screen-effects",
+      "enabled": true,
+      "visual": {
+        "type": "video",
+        "file": "assets/screen-effects/stars.webm",
+        "muted": true
+      },
+      "sound": null,
+      "durationMs": 5000,
+      "endOffsetMs": 10
+    },
     {
-  "id": "make_it_rain",
-  "label": "Make It Rain",
-  "category": "screen-effects",
-  "enabled": true,
-  "visual": {
-    "type": "video",
-    "file": "assets/screen-effects/make it rain.webm",
-    "muted": true
-  },
-  "sound": null,
-  "durationMs": 5000
-},
+      "id": "make_it_rain",
+      "label": "Make It Rain",
+      "category": "screen-effects",
+      "enabled": true,
+      "visual": {
+        "type": "video",
+        "file": "assets/screen-effects/make it rain.webm",
+        "muted": true
+      },
+      "sound": null,
+      "durationMs": 5000
+    },
     {
-  "id": "skeledance",
-  "label": "Skeledance",
-  "category": "screen-effects",
-  "enabled": true,
-  "visual": {
-    "type": "video",
-    "file": "assets/screen-effects/skeledance.webm",
-    "muted": true
-  },
-  "sound": null,
-  "durationMs": 5000,
-  "endOffsetMs": null
-}
+      "id": "skeledance",
+      "label": "Skeledance",
+      "category": "screen-effects",
+      "enabled": true,
+      "visual": {
+        "type": "video",
+        "file": "assets/screen-effects/skeledance.webm",
+        "muted": true
+      },
+      "sound": null,
+      "durationMs": 5000,
+      "endOffsetMs": null
+    }
   ]
 }
