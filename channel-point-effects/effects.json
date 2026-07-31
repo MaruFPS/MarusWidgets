@@ -42,15 +42,15 @@
       "endOffsetMs": null
     },
     {
-      "id": "shark",
-      "label": "Shark",
+      "id": "sharkmode",
+      "label": "Sharkmode",
       "category": "screen-effects",
       "enabled": true,
       "visual": {
         "type": "video",
-        "file": "assets/screen-effects/Shark.webm",
+        "file": "assets/screen-effects/Sharkmode.webm",
         "muted": false,
-        "volume": 0.2
+        "volume": 0.5
       },
       "sound": null,
       "durationMs": 7050,
