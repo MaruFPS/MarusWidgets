@@ -1,1 +1,10 @@
-temp
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #4C3F60;
+}
