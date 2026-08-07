@@ -1,283 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Archivo+Black&family=Bitcount:wght@100..900&family=Alumni+Sans+Collegiate+One:ital@0;1&display=swap');
 
-:root {
-    --bg: #4C3F60;
-    --white: #FFFFFF;
-
-    --logo-font: "Bitcount", sans-serif;
-    --heading-font: "Alumni Sans Collegiate One", sans-serif;
-    --body-font: "Amaranth", sans-serif;
-    --legal-font: "Archivo Black", sans-serif;
-}
-
-html,
-body {
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-}
-
-body {
-    background: var(--bg);
-    color: var(--white);
-}
-
-header {
-    width: 100%;
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 40px 120px;
-}
-
-.logo {
-    color: var(--white);
-    text-decoration: none;
-
-    font-family: var(--logo-font);
-    font-size: 65px;
-    font-weight: 300;
-}
-
-nav {
-    display: flex;
-    gap: 40px;
-}
-
-nav a {
-    color: var(--white);
-    text-decoration: none;
-
-    font-family: var(--logo-font);
-    font-size: 24px;
-    font-weight: 300;
-
-    transition: opacity 0.2s ease;
-}
-
-nav a:hover {
-    opacity: 0.6;
-}
 
 /* ==========================
-   Hero Section
+   Features Page
 ========================== */
 
-.hero {
-    text-align: center;
-    padding-top: 25px;
+.features-page{
+    text-align:center;
 }
 
-.hero h1 {
-    margin: 0;
-
-    color: var(--white);
-
-    font-family: var(--heading-font);
-    font-size: 67px;
-    font-weight: 400;
-    text-transform: uppercase;
+.features-page>h1{
+    margin:20px 0 0;
+    font-family:var(--logo-font);
+    font-size:96px;
+    font-weight:300;
 }
 
-.hero-description {
-    margin: 14px 0 22px;
-
-    color: var(--white);
-
-    font-family: var(--body-font);
-    font-size: 32px;
-    line-height: 1.15;
+.features-platforms{
+    margin-top:6px;
 }
 
-.supported-platforms {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.features-grid{
+    width:1150px;
+    margin:35px auto 80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
 }
 
-.platform-label {
-    margin-bottom: 10px;
-
-    font-family: var(--body-font);
-    font-size: 20px;
+.feature-column{
+    width:430px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.platform-list {
-    display: flex;
-    gap: 26px;
+.feature-column h2{
+    margin:0 0 18px;
+    font-family:var(--body-font);
+    font-size:24px;
+    font-weight:400;
+    line-height:1.1;
 }
 
-.platform {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    font-family: var(--body-font);
-    font-size: 20px;
-}
-
-.platform img {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
-}
-
-/* ==========================
-   Widgets Section
-========================== */
-
-.widgets-section {
-    margin-top: 35px;
-    text-align: center;
-}
-
-.widgets-heading h2 {
-    margin: 0;
-
-    font-family: var(--body-font);
-    font-size: 36px;
-    font-weight: 400;
-}
-
-.widgets-heading p {
-    margin: 4px 0 0;
-
-    font-family: var(--body-font);
-    font-size: 20px;
-}
-
-.widget-tree {
-    position: relative;
-
-    width: 1350px;
-    height: 560px;
-
-    margin: 18px auto 0;
-}
-
-/* ---------- Branch ---------- */
-
-.tree-center {
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    width: 12px;
-    height: 55px;
-
-    background: #000000;
-
-    transform: translateX(-50%);
-}
-
-.tree-horizontal {
-    position: absolute;
-
-    top: 55px;
-    left: 50%;
-
-    width: 711px;
-    height: 12px;
-
-    background: #000000;
-
-    transform: translateX(-50%);
-}
-
-.tree-left {
-    position: absolute;
-
-    top: 55px;
-    left: calc(50% - 355.5px);
-
-    width: 12px;
-    height: 55px;
-
-    background: #000000;
-}
-
-.tree-right {
-    position: absolute;
-
-    top: 55px;
-    left: calc(50% + 355.5px - 12px);
-
-    width: 12px;
-    height: 55px;
-
-    background: #000000;
-}
-
-/* ---------- Widget Columns ---------- */
-
-.widget-column {
-    position: absolute;
-
-    top: 145px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.viewer-widget {
-    left: 70px;
-}
-
-.chat-widget {
-    right: 70px;
-}
-
-/* ---------- Widget Titles ---------- */
-
-.widget-column h3 {
-    margin: 0 0 18px;
-
-    font-family: var(--body-font);
-    font-size: 24px;
-    font-weight: 400;
-
-    line-height: 1.1;
-}
-
-/* ---------- Placeholder Pills ---------- */
-
-.viewer-placeholder {
-    width: 318px;
-    height: 105px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #000000;
-    border-radius: 22px;
-
-    font-family: var(--body-font);
-    font-size: 28px;
-    line-height: 1.15;
-
-    transform: scale(1.05);
-}
-
-.chat-placeholder {
-    width: 329px;
-    height: 329px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #000000;
-    border-radius: 22px;
-
-    font-family: var(--body-font);
-    font-size: 28px;
-    line-height: 1.15;
-
-    transform: scale(1.05);
+.feature-list{
+    margin-top:24px;
+    font-family:var(--body-font);
+    font-size:24px;
+    line-height:1.35;
+    text-align:left;
 }
