@@ -366,3 +366,18 @@ nav a:hover {
 }
 
 .legal-content a{color:#fff;text-decoration:underline;}
+
+
+/* Promo GIFs */
+.viewer-placeholder,
+.chat-placeholder{
+overflow:hidden;
+padding:0;
+}
+.promo-gif{
+width:100%;
+height:100%;
+display:block;
+object-fit:contain;
+border-radius:inherit;
+}
