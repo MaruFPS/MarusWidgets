@@ -61,3 +61,66 @@ nav a {
 nav a:hover {
     opacity: 0.6;
 }
+
+/* ==========================
+   Hero Section
+========================== */
+
+.hero {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    color: var(--white);
+
+    font-family: var(--heading-font);
+    font-size: 67px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    margin: 14px 0 22px;
+
+    color: var(--white);
+
+    font-family: var(--body-font);
+    font-size: 32px;
+    line-height: 1.15;
+}
+
+.supported-platforms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.platform-label {
+    margin-bottom: 10px;
+
+    font-family: var(--body-font);
+    font-size: 20px;
+}
+
+.platform-list {
+    display: flex;
+    gap: 26px;
+}
+
+.platform {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-family: var(--body-font);
+    font-size: 20px;
+}
+
+.platform img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+}
