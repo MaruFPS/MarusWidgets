@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Archivo+Black&family=Bitcount:wght@100..900&family=Alumni+Sans+Collegiate+One:ital@0;1&display=swap');
+
+:root {
+    --bg: #4C3F60;
+    --white: #FFFFFF;
+
+    --logo-font: "Bitcount", sans-serif;
+    --heading-font: "Alumni Sans Collegiate One", sans-serif;
+    --body-font: "Amaranth", sans-serif;
+    --legal-font: "Archivo Black", sans-serif;
+}
+
 html,
 body {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
-  background: #4C3F60;
+    background: var(--bg);
+    color: var(--white);
 }
 
 header {
@@ -21,10 +34,12 @@ header {
 }
 
 .logo {
-    color: white;
+    color: var(--white);
     text-decoration: none;
-    font-size: 54px;
-    font-family: "WithMyWoes", monospace;
+
+    font-family: var(--logo-font);
+    font-size: 65px;
+    font-weight: 300;
 }
 
 nav {
@@ -33,13 +48,16 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
-    font-size: 22px;
-    font-family: "WithMyWoes", monospace;
-    transition: opacity .2s;
+
+    font-family: var(--logo-font);
+    font-size: 24px;
+    font-weight: 300;
+
+    transition: opacity 0.2s ease;
 }
 
 nav a:hover {
-    opacity: .6;
+    opacity: 0.6;
 }
