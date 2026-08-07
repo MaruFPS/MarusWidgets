@@ -328,7 +328,8 @@ nav a:hover {
 
 .feature-list{
     margin-top:24px;
-    width:100%;
+    width:320px;
+    margin:24px auto 0;
     font-family:var(--body-font);
     font-size:24px;
     line-height:1.35;
@@ -363,3 +364,5 @@ nav a:hover {
     padding:0;
     margin:0;
 }
+
+.legal-content a{color:#fff;text-decoration:underline;}
