@@ -8,3 +8,38 @@ body {
 body {
   background: #4C3F60;
 }
+
+header {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 40px 120px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 54px;
+    font-family: "WithMyWoes", monospace;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: "WithMyWoes", monospace;
+    transition: opacity .2s;
+}
+
+nav a:hover {
+    opacity: .6;
+}
