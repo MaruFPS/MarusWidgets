@@ -1,35 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maru Widgets - Privacy</title><link rel="stylesheet" href="style.css"></head><body>
-<header><a href="index.html" class="logo">Maru Widgets</a><nav><a href="features.html">FEATURES</a><a href="privacy.html">PRIVACY</a><a href="tos.html">TOS</a></nav></header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maru Widgets - Privacy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<a href="index.html" class="logo">Maru Widgets</a>
+<nav>
+<a href="features.html">FEATURES</a>
+<a href="privacy.html">PRIVACY</a>
+<a href="tos.html">TOS</a>
+</nav>
+</header>
+
 <section class="legal-page">
 <h1 class="legal-title">PRIVACY</h1>
 <div class="legal-content">
-<p><strong>Privacy Policy</strong><br><strong>Last Updated: August 6, 2026</strong></p>
+<p><strong>Privacy Policy</strong><br><strong>Last Updated: August 8, 2026</strong></p>
+
 <h3>Overview</h3>
-<p>Marus Widgets ("we," "our," or "us") provides custom livestream widgets and creator tools, including live viewer counters and multi-platform live chat aggregation for supported streaming platforms such as Twitch, Kick, and YouTube.<br>
-We are committed to protecting user privacy and handling publicly available information responsibly.</p>
-<h3>Information We Collect</h3>
-<p>Marus Widgets only accesses publicly available information necessary to provide widget functionality. This may include:</p>
-<ul>
-<li>Public livestream chat messages</li><li>Public usernames and display names</li><li>Public profile images</li><li>Public livestream information</li><li>Public viewer counts</li><li>Public channel information</li><li>Public platform badges and publicly available user metadata</li>
-</ul>
-<p>We do not collect or store:</p>
-<ul><li>Passwords</li><li>Payment information</li><li>Private account information</li><li>Google account credentials</li><li>OAuth tokens (unless explicitly implemented in a future version)</li></ul>
+<p>Maru Widgets ("we," "our," or "us") provides custom livestream widgets and creator tools, including live viewer counters and multi-platform live chat aggregation for supported streaming platforms such as Twitch, Kick, and YouTube. This Privacy Policy explains what information our API Client accesses, collects, stores, processes, and otherwise uses.</p>
+
 <h3>YouTube API Services</h3>
-<p>Marus Widgets uses the YouTube Data API to provide real-time livestream functionality, including public live chat messages and live viewer counts.<br>
-By using features powered by YouTube, you acknowledge that your use of those features is also subject to the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.<br>
-Marus Widgets only accesses publicly available YouTube information required to provide the requested functionality.</p>
+<p>Maru Widgets uses YouTube API Services, including the YouTube Data API, to provide real-time livestream functionality such as public live chat messages and public live viewer counts. Use of YouTube-powered features is also subject to the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+
+<h3>Information and API Data We Access</h3>
+<p>Maru Widgets accesses only the information necessary to provide the requested widget functionality. Depending on the platform and widget being used, this may include:</p>
+<ul>
+<li>Public livestream chat messages</li>
+<li>Public usernames and display names</li>
+<li>Public profile images</li>
+<li>Public livestream titles, identifiers, and status information</li>
+<li>Public live viewer counts</li>
+<li>Public channel information</li>
+<li>Public platform badges and other publicly available user metadata</li>
+<li>YouTube API Data returned by the YouTube API Services for the requested public livestream or channel</li>
+</ul>
+
+<p>Current public YouTube widget functionality does not require users to provide Maru Widgets with Google account passwords or Google account credentials. Maru Widgets does not collect payment information through these widgets.</p>
+
 <h3>How Information Is Used</h3>
-<ul><li>Display live chat within custom streaming overlays</li><li>Display public livestream statistics</li><li>Display real-time viewer counts</li><li>Provide live widget functionality</li><li>Improve the performance and reliability of supported widgets</li></ul>
-<p>Information is never used for advertising, profiling, or marketing purposes.</p>
-<h3>Data Storage</h3>
-<p>Marus Widgets does not permanently store livestream chat messages, viewer counts, or public livestream metadata. Information is processed temporarily in memory or short-term cache solely to provide real-time functionality and is discarded after use.</p>
-<h3>Data Sharing</h3><p>We do not sell, rent, or share personal information with third parties. Information obtained through supported platform APIs is used only to provide the requested widget functionality.</p>
-<h3>Data Deletion</h3><p>Because Marus Widgets does not permanently store livestream chat messages, viewer counts, or other public livestream data, there is generally no persistent user data to delete. If future versions store user-specific information, users may request deletion by contacting us.</p>
-<h3>Security</h3><ul><li>API credentials</li><li>Cloudflare Worker infrastructure</li><li>Services used to provide widget functionality</li></ul>
-<p>Access is limited to what is necessary for operation of the service.</p>
-<h3>Changes to This Privacy Policy</h3><p>This Privacy Policy may be updated periodically. Any changes will be posted on this page, along with an updated revision date.</p>
-<h3>Contact</h3><p>For questions regarding this Privacy Policy or requests related to privacy or data handling, please contact:<br><strong>Email: evolvexdesigns@gmail.com</strong></p>
-</div></section></body></html>
+<p>Information and API Data accessed through supported platforms is used only to:</p>
+<ul>
+<li>Display live chat within custom streaming overlays</li>
+<li>Display public livestream statistics and live viewer counts</li>
+<li>Identify the public livestream or channel requested by the user</li>
+<li>Provide and maintain real-time widget functionality</li>
+<li>Improve the performance, reliability, and error handling of supported widgets</li>
+</ul>
+<p>Maru Widgets does not use YouTube API Data for advertising, profiling, or unrelated marketing purposes.</p>
+
+<h3>Data Storage and Processing</h3>
+<p>Maru Widgets does not permanently store public livestream chat messages, public viewer counts, or public livestream metadata. This information may be processed temporarily in memory or short-term cache only as needed to provide real-time functionality and reduce unnecessary API requests, and is then discarded or refreshed.</p>
+
+<h3>Cookies, Browser Storage, and Third-Party Technologies</h3>
+<p>Maru Widgets does not intentionally place first-party advertising or tracking cookies for its YouTube widget functionality. However, the Maru Widgets website and widgets may load content or resources from third-party service providers, such as GitHub Pages, Google Fonts, image-hosting providers, Cloudflare, YouTube/Google, StreamElements, or other supported streaming services. Those third parties may receive standard browser or device information, such as an IP address, browser or user-agent information, referrer information, or similar request metadata, and may place, access, or recognize cookies or similar technologies according to their own policies. Users should review the privacy policies of those third-party services for additional information.</p>
+
+<h3>Data Sharing</h3>
+<p>Maru Widgets does not sell or rent personal information. Information obtained through supported platform APIs is used to provide the requested widget functionality. Information may necessarily be transmitted to infrastructure or service providers used to operate the widgets, such as Cloudflare, hosting providers, or the relevant streaming platform, solely as required to provide the service.</p>
+
+<h3>Google Authorization, Revocation, and Data Deletion</h3>
+<p>Current public YouTube widget functionality is designed to use publicly available, non-authorized YouTube API Data and does not require a user to grant Maru Widgets OAuth access to a Google account. If a current or future Maru Widgets feature accesses Authorized Data through Google user authorization, users may revoke Maru Widgets' access through Google's security settings at <a href="https://myaccount.google.com/connections?filters=3,4&hl=en" target="_blank" rel="noopener">Google Account Connections</a>.</p>
+<p>Users may also request deletion of any user-specific or Authorized Data stored by Maru Widgets by contacting <strong>evolvexdesigns@gmail.com</strong>. If Authorized Data is stored in a feature that uses Google authorization, Maru Widgets will delete data associated with that authorization after revocation or a valid deletion request as soon as reasonably possible and in accordance with applicable YouTube API Services policies.</p>
+<p>Because the current public livestream widgets do not permanently store public chat messages, viewer counts, or public livestream metadata, there is generally no persistent public livestream data to delete.</p>
+
+<h3>Security</h3>
+<p>Reasonable administrative and technical measures are used to protect API credentials and the infrastructure used to provide widget functionality, including Cloudflare Worker services and other supporting systems. Access is limited to what is necessary for operation of the service.</p>
+
+<h3>Changes to This Privacy Policy</h3>
+<p>This Privacy Policy may be updated periodically. Any changes will be posted on this page along with an updated revision date.</p>
+
+<h3>Contact</h3>
+<p>For questions regarding this Privacy Policy, privacy practices, API Data, or data deletion requests, please contact:<br><strong>Email: evolvexdesigns@gmail.com</strong></p>
+</div>
+</section>
+</body>
+</html>
