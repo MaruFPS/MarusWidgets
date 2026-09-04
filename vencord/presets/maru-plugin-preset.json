@@ -51,6 +51,7 @@
     "VoiceDownload",
     "VoiceMessages",
     "VolumeBooster",
+    "KickPresence",
     "YTMDesktopControls"
   ]
 }
