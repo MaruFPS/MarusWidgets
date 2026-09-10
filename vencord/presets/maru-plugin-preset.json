@@ -2,6 +2,7 @@
   "version": 1,
   "plugins": [
     "AccountPanelServerProfile",
+    "AddAttachments",
     "AlwaysExpandRoles",
     "BetterFolders",
     "BetterGifPicker",
@@ -11,6 +12,7 @@
     "CallTimer",
     "ClearURLs",
     "CopyStickerLinks",
+    "CopyUserURLs",
     "CrashHandler",
     "CustomIdle",
     "CustomRPC",
