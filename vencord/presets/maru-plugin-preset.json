@@ -54,6 +54,7 @@
     "VoiceMessages",
     "VolumeBooster",
     "KickPresence",
-    "YTMDesktopControls"
+    "YTMDesktopControls",
+    "StatusSwitcher"
   ]
 }
