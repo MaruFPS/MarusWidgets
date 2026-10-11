@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Audiowide&family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Bebas+Neue&family=Bungee&family=Graduate&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --message-boxes: 1;
+  --box-opacity: .4;
+  --box-radius: 12px;
+  --box-blur: 0px;
+
+  --message-life: 7s;
+  --message-fade-delay: 60s;
+  --font-size: 18px;
+  --message-shadow: 0px 1px 2px rgba(0, 0, 0, 0.85);
+  --main-text-stroke-width: 0px;
+  --main-text-stroke-color: #000000;
+
+  --message-gap: 4px;
+  --reply-indent: 0px;
+  --max-message-width: 50%;
+
+  --first-message-color-rgb: 255, 0, 247;
+
+  --box-bg: rgba(25,25,25,var(--box-opacity));
+  --box-border: 1px solid rgba(255,255,255,.05);
+  --chat-scale: 1.15;
+
+  --main-font-family: Arial, sans-serif;
+  --main-username-font-weight: 700;
+  --main-message-font-weight: 400;
+  --main-font-style: normal;
+
+  --reply-font-family: Arial, sans-serif;
+  --reply-font-weight: 400;
+  --reply-font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#chat {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--message-gap);
+  padding: 10px;
+  box-sizing: border-box;
+
+  transform: scale(var(--chat-scale));
+  transform-origin: bottom left;
+}
+
+.chat-message.has-reply {
+  margin-left: var(--reply-indent);
+}
+
+.chat-message {
+  color: white;
+  font-size: var(--font-size);
+  line-height: 1.25;
+  text-shadow: var(--message-shadow);
+  animation: fadeIn 0.25s ease-out;
+  display: inline-block;
+  width: fit-content;
+  max-width: var(--max-message-width);
+  white-space: normal;
+  padding: calc(var(--message-boxes) * 8px) calc(var(--message-boxes) * 12px);
+  background: var(--box-bg);
+  backdrop-filter: blur(var(--box-blur));
+  -webkit-backdrop-filter: blur(var(--box-blur));
+  border: var(--box-border);
+  border-radius: var(--box-radius);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.chat-message.no-box {
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.chat-message.no-box.first-message {
+  background: transparent !important;
+}
+
+.badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  vertical-align: middle;
+  margin-right: 1px;
+}
+
+.badge {
+  height: 18px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+
+.platform-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.profile-picture {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  gap: 3px;
+}
+
+.username-wrap {
+  font-family: var(--main-font-family);
+  font-weight: var(--main-username-font-weight);
+  font-style: var(--main-font-style);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  position: relative;
+  -webkit-text-stroke:
+    var(--main-text-stroke-width)
+    var(--main-text-stroke-color);
+}
+
+.username-text {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.username-base {
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
+}
+
+.username-paint {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  pointer-events: none;
+}
+
+.message-text {
+  font-family: var(--main-font-family);
+  font-weight: var(--main-message-font-weight);
+  font-style: var(--main-font-style);
+  display: inline;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  -webkit-text-stroke:
+    var(--main-text-stroke-width)
+    var(--main-text-stroke-color);
+}
+
+.message-text img,
+.message-text .emote {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.reply-indicator {
+  font-family: var(--reply-font-family);
+  font-weight: var(--reply-font-weight);
+  font-style: var(--reply-font-style);
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 2px;
+  border-left: 2px solid rgba(255,255,255,.2);
+  padding-left: 6px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Normal Twitch, Kick and 7TV emotes */
+.emote,
+.message-text img.emote,
+.message-text .emote {
+  height: 20px !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 1px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Enlarge emote-only messages only when the option is enabled */
+.chat-message.emote-pop .emote,
+.chat-message.emote-pop .message-text img.emote {
+  height: 44px !important;
+  width: 44px !important;
+  max-width: 44px !important;
+  min-width: 44px !important;
+}
+
+/* Native emoji when regular text is also present */
+.native-emoji,
+.message-text img.native-emoji,
+.message-text img.emoji {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  min-width: 20px !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 1px !important;
+}
+
+/* Enlarge native emoji-only messages only when the option is enabled */
+.chat-message.emote-pop.native-emoji-only .native-emoji,
+.chat-message.emote-pop.native-emoji-only img.emoji {
+  width: 38px !important;
+  height: 38px !important;
+  max-width: 38px !important;
+  min-width: 38px !important;
+}
+
+.chat-message.emote-pop {
+  padding: calc(var(--message-boxes) * 10px) calc(var(--message-boxes) * 14px);
+}
+
+.chat-message.no-fade {
+  animation: fadeIn 0.25s ease-out;
+  opacity: 1;
+}
+
+.chat-message.first-message {
+  background: rgba(var(--first-message-color-rgb), var(--box-opacity));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.username-separator {
+  color: white;
+  font-weight: inherit;
+  margin-right: 1px;
+}
+
+.seventv-badge {
+  height: 18px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+.kick-badge {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* YouTube role badges supplied by the Cloudflare chat bridge */
+.youtube-role-badge {
+  height: 18px;
+  width: 18px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/* Twitch Shared Chat source label */
+.shared-chat-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: rgba(145, 70, 255, 0.78);
+  color: #ffffff;
+  font-family: var(--main-font-family);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 18px;
+  vertical-align: middle;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.shared-chat-source-icon {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+
+/*
+ * Shared Chat creator/source badge.
+ * This appears for every Twitch message only while Twitch supplies
+ * source-room-id, so normal non-shared Twitch chat remains unchanged.
+ */
+.shared-chat-source {
+  max-width: 150px;
+}
+
+.shared-chat-source-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shared-chat-source-fallback {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #9146ff;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+
+/* Cloudflare-resolved Twitch Shared Chat creator badge */
+.shared-chat-source:has(.shared-chat-source-icon) {
+  padding-left: 2px;
+}
+
+.shared-chat-source-icon {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.shared-chat-source:has(.shared-chat-source-icon)
+.shared-chat-source-fallback {
+  display: none;
+}
+
+
+/* Twitch Shared Chat source marker: creator PFP only */
+.shared-chat-source,
+.shared-chat-source-name,
+.shared-chat-source-fallback {
+  display: none !important;
+}
+
+.shared-chat-source-pfp {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+
+/* Official Kick role badges returned as inline SVG by Cloudflare */
+
+
+
+/*
+ * Kick inline role badges: exactly match the widget's existing
+ * Twitch/Kick badge height of 18px.
+ * Subscriber and badges_v2 IMG badges are not changed.
+ */
+.kick-badge-inline {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  flex: 0 0 18px !important;
+  vertical-align: middle;
+  line-height: 0;
+  overflow: visible;
+  margin-right: 2px;
+}
+
+.kick-badge-inline > svg,
+.kick-badge-inline-svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  flex: 0 0 18px !important;
+  overflow: visible;
+}
+
+/* ===== Unified smaller badge sizing =====
+ * All platform/channel/role badges scale slightly smaller than the chat text.
+ * 0.90em = ~16.2px when the chat font is 18px.
+ */
+.badge,
+.seventv-badge,
+.kick-badge,
+.youtube-role-badge {
+  height: 0.90em !important;
+  max-height: 0.90em !important;
+  min-height: 0 !important;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Square YouTube role badges */
+.youtube-role-badge {
+  width: 0.90em !important;
+  min-width: 0.90em !important;
+  max-width: 0.90em !important;
+}
+
+/* Kick role badges rendered as inline SVG */
+.kick-badge-inline {
+  width: 0.90em !important;
+  height: 0.90em !important;
+  min-width: 0.90em !important;
+  max-width: 0.90em !important;
+  min-height: 0.90em !important;
+  max-height: 0.90em !important;
+  flex: 0 0 0.90em !important;
+}
+
+.kick-badge-inline > svg,
+.kick-badge-inline-svg {
+  width: 0.90em !important;
+  height: 0.90em !important;
+  min-width: 0.90em !important;
+  max-width: 0.90em !important;
+  min-height: 0.90em !important;
+  max-height: 0.90em !important;
+  flex: 0 0 0.90em !important;
+}
+
+/* ===== Badge spacing normalization =====
+ * The Badge Spacing control is now the ONE source of truth for spacing
+ * between the platform icon, profile picture, and every badge.
+ *
+ * Individual badge classes previously had their own 2px right margins,
+ * which meant setting Badge Spacing to 0 still left visible gaps.
+ */
+.badges {
+  gap: 0;
+  margin-right: 1px; /* exactly 1px between the final badge and username */
+}
+
+.badges > .platform-icon,
+.badges > .shared-chat-source-pfp,
+.badges > .profile-picture,
+.badges > .badge,
+.badges > .seventv-badge,
+.badges > .kick-badge,
+.badges > .youtube-role-badge,
+.badges > .kick-badge-inline {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Profile-picture-to-badge spacing is applied directly in JS to the
+ * profile picture after the actual badge row is composed. This keeps it
+ * independent from badge-to-badge flex gap and works with async badges.
+ */
+
+/* ===== Twitch GIPHY chat messages =====
+ * Twitch supplies GIPHY metadata through the StreamElements `gifs` tag.
+ * Keep GIFs below the username line and cap their size so one message
+ * cannot take over the entire overlay.
+ */
+.chat-message.has-twitch-gif .message-text {
+  display: block;
+  margin-top: 4px;
+  line-height: 0;
+}
+
+.twitch-gif,
+.message-text img.twitch-gif {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: min(320px, 100%) !important;
+  max-height: 240px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  border-radius: 6px;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+}
+
+/*
+ * Do not let a newly-created GIF paint at its intrinsic/fallback size while
+ * JavaScript waits for naturalWidth/naturalHeight. JS removes this class only
+ * after the user-selected final width has been applied.
+ */
+.twitch-gif.twitch-gif-pending,
+.message-text img.twitch-gif.twitch-gif-pending {
+  display: none !important;
+}
