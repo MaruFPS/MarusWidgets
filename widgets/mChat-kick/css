@@ -1,93 +1,218 @@
 :root {
-    --font-size: 26px;
-    --font-family: sans-serif;
-    --font-color: #ffffff;
-    --text-shadow: none;
+  --message-boxes: 0;
+  --box-opacity: .4;
+  --box-radius: 12px;
+  --box-blur: .25px;
+  --message-life: 7s;
+  --message-fade-delay: 60s;
+  --chat-scale: 1.1;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-}
-
-#chat-container {
-    width: 100%;
-    height: 100vh;
-    padding: 10px;
-    display: flex;
-    flex-direction: column-reverse;
-    overflow: hidden;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
 #chat {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--font-size);
-    text-transform: none;
-    color: var(--font-color);
-    gap: 0.5em;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .chat-message {
-    display: block;
-    font-family: var(--font-family);
-    gap: 0.25em;
-    line-height: 1.4em;
-    animation: fadeIn 0.75s;
-    opacity: 1;
-    transition: opacity 0.5s;
-    text-shadow: var(--text-shadow);
+  color: white;
+  font-size: calc(18px * var(--chat-scale));
+  line-height: 1.25;
+  text-shadow: none;
+  animation:
+    fadeIn 0.25s ease-out,
+    fadeOut var(--message-life) ease-out var(--message-fade-delay) forwards;
+  display: inline-block;
+  width: fit-content;
+  max-width: 50%;
+  white-space: normal;
+  padding: calc(var(--message-boxes) * 8px) calc(var(--message-boxes) * 12px);
+  background: rgba(25,25,25,calc(.35 * var(--message-boxes)));
+  backdrop-filter: blur(calc(4px * var(--message-boxes)));
+  -webkit-backdrop-filter: blur(calc(4px * var(--message-boxes)));
+  border-style: solid;
+  border-color: rgba(255,255,255,.05);
+  border-width: calc(1px * var(--message-boxes));
+  border-radius: calc(16px * var(--message-boxes));
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.95),
+    0 0 4px rgba(0,0,0,.85);
+}
+
+/* Hard off-state for message boxes. JS adds .no-box whenever
+   --message-boxes is 0, so no browser/CSS calc edge case can leave
+   any part of the box visible. */
+.chat-message.no-box,
+.chat-message.no-box.emote-pop {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.profile-picture {
+  width: calc(22px * var(--chat-scale));
+  height: calc(22px * var(--chat-scale));
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+  border: 1px solid rgba(255,255,255,.15);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.9));
+}
+
+.badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 0px;
+  vertical-align: middle;
+  margin-right: 1px;
+}
+
+.badge {
+  height: calc(18px * var(--chat-scale));
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.9));
+}
+
+.username-wrap {
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  position: relative;
+}
+
+.username-base {
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
+}
+
+.username-paint {
+  position: absolute;
+  inset: 0;
+  display: inline-block;
+  white-space: nowrap;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  pointer-events: none;
+  text-shadow: none !important;
+}
+
+
+.message-text {
+  display: inline;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.tip-message,
+.tts-message {
+  color: #00ff8c;
+  font-weight: 700;
+}
+
+.reply-indicator {
+  font-size: 13px;
+  color: rgba(255,255,255,1);
+  margin-bottom: 2px;
+  border-left: 2px solid rgba(255,255,255,.2);
+  padding-left: 6px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emote {
+  height: calc(28px * var(--chat-scale));
+  max-width: calc(112px * var(--chat-scale));
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+
+/* Native emoji when regular text is also present */
+.native-emoji {
+  width: calc(20px * var(--chat-scale));
+  height: calc(20px * var(--chat-scale));
+  max-width: none;
+  display: inline-block;
+  vertical-align: -0.15em;
+  margin: 0 1px;
+  object-fit: contain;
+}
+
+/* Kick and 7TV emote-only messages */
+.chat-message.emote-pop .emote {
+  height: calc(44px * var(--chat-scale));
+  max-width: calc(176px * var(--chat-scale));
+}
+
+/* Native emoji-only messages */
+.chat-message.native-emoji-only .native-emoji {
+  width: calc(38px * var(--chat-scale));
+  height: calc(38px * var(--chat-scale));
+  max-width: none;
+}
+
+/* Keep native emoji slightly smaller than Kick/7TV emotes */
+.chat-message.emote-pop.native-emoji-only .native-emoji {
+  width: calc(38px * var(--chat-scale));
+  height: calc(38px * var(--chat-scale));
+  max-width: none;
+}
+
+.chat-message.emote-pop {
+  padding: calc(var(--message-boxes) * 10px)
+    calc(var(--message-boxes) * 14px);
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
+  0% {
+    opacity: 1;
+  }
 
-.fade-out {
-    animation: fadeOut 0.75s forwards;
-}
+  66% {
+    opacity: 1;
+  }
 
-.chat-badges {
-    width: fit-content;
-    height: fit-content;
-    display: inline-block;
-}
+  85% {
+    opacity: 0.45;
+  }
 
-.chat-message .chat-badges img {
-    display: inline-block;
-    margin-right: 0.15em;
-    margin-bottom: 0.2em;
-    min-height: 1em;
-    max-height: 1em;
-    max-width: 1em;
-}
-
-.chat-message .chat-username {
-    font-weight: 700;
-    margin-right: 0.2em;
-}
-
-.chat-message .chat-message-content {
-    font-weight: 700;
-    word-break: break-word;
-}
-
-.highlighted-message {
-    background-color: rgba(0, 0, 0, 0.4);
-    margin: 0 -10px;
-    padding: 5px 10px;
-    border-radius: 0.2em;
-}
-
-.chat-message .chat-message-content img {
-    display: inline-block;
-    max-height: 1.2em;
-    min-width: 1em;
-    margin: 0 0.1em 0 0.15em;
+  100% {
+    opacity: 0;
+  }
 }
