@@ -1,0 +1,616 @@
+{
+  "kickChannel": {
+    "type": "text",
+    "label": "Kick Channel Name",
+    "value": ""
+  },
+  "kickChatroomId": {
+    "type": "text",
+    "label": "Kick Chatroom ID (optional fallback)",
+    "value": ""
+  },
+  "enableKickChat": {
+    "type": "checkbox",
+    "label": "Enable Kick Chat",
+    "value": true
+  },
+  "enableYouTubeChat": {
+    "type": "checkbox",
+    "label": "Enable YouTube Chat",
+    "value": true
+  },
+  "youtubeChannelId": {
+    "type": "text",
+    "label": "YouTube Channel (@handle, URL or UC...)",
+    "value": "@HailyXAlyseLivee"
+  },
+  "youtubeWorkerUrl": {
+    "type": "text",
+    "label": "Cloudflare Worker URL (YouTube + Twitch Moderation/Shared Chat + Kick Badges)",
+    "value": "https://marus-viewer-count.evolvexdesigns.workers.dev"
+  },
+  "twitchModerationSetupUrl": {
+    "type": "text",
+    "label": "Twitch Moderation Setup URL (open once in a normal browser)",
+    "value": "https://marus-viewer-count.evolvexdesigns.workers.dev/twitch/setup"
+  },
+  "youtubePlatformIconUrl": {
+    "type": "text",
+    "label": "Custom YouTube Icon URL (optional)",
+    "value": ""
+  },
+  "youtubeOfflineCheckSeconds": {
+    "type": "number",
+    "label": "YouTube Offline Recheck (seconds)",
+    "value": 15,
+    "min": 5,
+    "max": 120,
+    "step": 1
+  },
+  "enableTwitchSharedChatLabels": {
+    "type": "checkbox",
+    "label": "Show Creator PFP on Twitch Shared Chat",
+    "value": true
+  },
+  "collaboratorTwitchUsername": {
+    "type": "text",
+    "label": "Fallback Shared Chat Channel Name (optional)",
+    "value": ""
+  },
+  "collaboratorTwitchUserId": {
+    "type": "text",
+    "label": "Fallback Shared Chat Channel ID (optional)",
+    "value": ""
+  },
+  "collaboratorTwitchIconUrl": {
+    "type": "text",
+    "label": "Fallback Shared Chat Channel Icon (optional)",
+    "value": ""
+  },
+  "showPlatformIcons": {
+    "type": "checkbox",
+    "label": "Show Platform Icons",
+    "value": true
+  },
+  "twitchPlatformIconUrl": {
+    "type": "text",
+    "label": "Custom Twitch Icon URL (optional)",
+    "value": ""
+  },
+  "kickPlatformIconUrl": {
+    "type": "text",
+    "label": "Custom Kick Icon URL (optional)",
+    "value": ""
+  },
+  "kickReconnectDelaySeconds": {
+    "type": "number",
+    "label": "Kick Reconnect Delay (seconds)",
+    "value": 5,
+    "min": 2,
+    "max": 60,
+    "step": 1
+  },
+  "enableNativeSevenTVEmotes": {
+    "type": "checkbox",
+    "label": "Enable Native 7TV Emote Loading",
+    "value": true
+  },
+  "enableSevenTVLiveUpdates": {
+    "type": "checkbox",
+    "label": "Enable Live 7TV Emote Updates",
+    "value": true
+  },
+  "loadSevenTVGlobalEmotes": {
+    "type": "checkbox",
+    "label": "Load 7TV Global Emotes",
+    "value": true
+  },
+  "twitchSevenTVPlatformId": {
+    "type": "text",
+    "label": "Twitch Channel User ID for 7TV (optional)",
+    "value": ""
+  },
+  "twitchSevenTVUsername": {
+    "type": "text",
+    "label": "Twitch Channel Username for 7TV",
+    "value": ""
+  },
+  "twitchSevenTVEmoteSetOverride": {
+    "type": "text",
+    "label": "Twitch 7TV Emote Set ID Override (optional)",
+    "value": ""
+  },
+  "kickSevenTVPlatformId": {
+    "type": "text",
+    "label": "Kick Channel User ID for 7TV (optional)",
+    "value": ""
+  },
+  "kickSevenTVEmoteSetOverride": {
+    "type": "text",
+    "label": "Kick 7TV Emote Set ID Override (optional)",
+    "value": ""
+  },
+  "maxMessages": {
+    "type": "number",
+    "label": "Maximum Messages",
+    "value": 30,
+    "min": 1,
+    "max": 100,
+    "step": 1
+  },
+  "fadeMessages": {
+    "type": "dropdown",
+    "label": "Fade Messages",
+    "value": "on",
+    "options": {
+      "on": "On",
+      "off": "Off"
+    }
+  },
+  "messageLifetimeSeconds": {
+    "type": "number",
+    "label": "Fade Duration (seconds)",
+    "value": 7,
+    "min": 0,
+    "max": 60,
+    "step": 1
+  },
+  "fadeDelaySeconds": {
+    "type": "number",
+    "label": "Fade Delay (seconds)",
+    "value": 60,
+    "min": 0,
+    "max": 600,
+    "step": 1
+  },
+  "showBoxes": {
+    "type": "checkbox",
+    "label": "Show Message Boxes",
+    "value": true
+  },
+  "boxOpacity": {
+    "type": "number",
+    "label": "Message Box Opacity",
+    "value": 0.4,
+    "min": 0,
+    "max": 1,
+    "step": 0.05
+  },
+  "boxRadius": {
+    "type": "number",
+    "label": "Message Box Radius",
+    "value": 12,
+    "min": 0,
+    "max": 40,
+    "step": 1
+  },
+  "boxBlur": {
+    "type": "number",
+    "label": "Message Box Blur",
+    "value": 0,
+    "min": 0,
+    "max": 30,
+    "step": 1
+  },
+  "fontSize": {
+    "type": "number",
+    "label": "Font Size",
+    "value": 18,
+    "min": 8,
+    "max": 48,
+    "step": 1
+  },
+  "enableTextShadow": {
+    "type": "checkbox",
+    "label": "Enable Text Shadow",
+    "value": true
+  },
+  "textShadowX": {
+    "type": "number",
+    "label": "Shadow Horizontal Offset (px)",
+    "value": 0,
+    "min": -20,
+    "max": 20,
+    "step": 0.5
+  },
+  "textShadowY": {
+    "type": "number",
+    "label": "Shadow Vertical Offset (px)",
+    "value": 1,
+    "min": -20,
+    "max": 20,
+    "step": 0.5
+  },
+  "textShadowBlur": {
+    "type": "number",
+    "label": "Shadow Blur (px)",
+    "value": 2,
+    "min": 0,
+    "max": 30,
+    "step": 0.5
+  },
+  "textShadowColor": {
+    "type": "colorpicker",
+    "label": "Shadow Color",
+    "value": "#000000"
+  },
+  "textShadowOpacity": {
+    "type": "number",
+    "label": "Shadow Opacity",
+    "value": 0.85,
+    "min": 0,
+    "max": 1,
+    "step": 0.05
+  },
+  "mainTextStrokeWidth": {
+    "type": "number",
+    "label": "Username + Message Outline Width",
+    "value": 0,
+    "min": 0,
+    "max": 10,
+    "step": 0.25
+  },
+  "mainTextStrokeColor": {
+    "type": "colorpicker",
+    "label": "Username + Message Outline Color",
+    "value": "#000000"
+  },
+  "mainFontFamily": {
+    "type": "dropdown",
+    "label": "Username + Message Font",
+    "value": "Arial, sans-serif",
+    "options": {
+      "Arial, sans-serif": "Arial",
+      "\"Roboto\", sans-serif": "Roboto",
+      "\"Archivo Black\", sans-serif": "Archivo Black",
+      "\"Poppins\", sans-serif": "Poppins",
+      "\"Inter\", sans-serif": "Inter",
+      "\"Montserrat\", sans-serif": "Montserrat",
+      "\"Outfit\", sans-serif": "Outfit",
+      "\"Rubik\", sans-serif": "Rubik",
+      "\"Nunito Sans\", sans-serif": "Nunito Sans",
+      "\"Barlow Condensed\", sans-serif": "Barlow Condensed",
+      "\"Graduate\", cursive": "Graduate",
+      "\"Anton\", sans-serif": "Anton",
+      "\"Bebas Neue\", sans-serif": "Bebas Neue",
+      "\"Bungee\", cursive": "Bungee",
+      "\"Audiowide\", cursive": "Audiowide",
+      "\"Orbitron\", sans-serif": "Orbitron",
+      "\"Trebuchet MS\", sans-serif": "Trebuchet MS",
+      "Verdana, sans-serif": "Verdana",
+      "Georgia, serif": "Georgia"
+    }
+  },
+  "mainFontWeight": {
+    "type": "dropdown",
+    "label": "Username + Message Weight",
+    "value": "existing",
+    "options": {
+      "100": "Thin 100",
+      "200": "Extra Light 200",
+      "300": "Light 300",
+      "400": "Regular 400",
+      "500": "Medium 500",
+      "600": "Semi Bold 600",
+      "700": "Bold 700",
+      "800": "Extra Bold 800",
+      "900": "Black 900",
+      "existing": "Existing (Username Bold)"
+    }
+  },
+  "mainFontStyle": {
+    "type": "dropdown",
+    "label": "Username + Message Style",
+    "value": "normal",
+    "options": {
+      "normal": "Normal",
+      "italic": "Italic"
+    }
+  },
+  "replyFontFamily": {
+    "type": "dropdown",
+    "label": "Reply Preview Font",
+    "value": "Arial, sans-serif",
+    "options": {
+      "Arial, sans-serif": "Arial",
+      "\"Roboto\", sans-serif": "Roboto",
+      "\"Archivo Black\", sans-serif": "Archivo Black",
+      "\"Poppins\", sans-serif": "Poppins",
+      "\"Inter\", sans-serif": "Inter",
+      "\"Montserrat\", sans-serif": "Montserrat",
+      "\"Outfit\", sans-serif": "Outfit",
+      "\"Rubik\", sans-serif": "Rubik",
+      "\"Nunito Sans\", sans-serif": "Nunito Sans",
+      "\"Barlow Condensed\", sans-serif": "Barlow Condensed",
+      "\"Graduate\", cursive": "Graduate",
+      "\"Anton\", sans-serif": "Anton",
+      "\"Bebas Neue\", sans-serif": "Bebas Neue",
+      "\"Bungee\", cursive": "Bungee",
+      "\"Audiowide\", cursive": "Audiowide",
+      "\"Orbitron\", sans-serif": "Orbitron",
+      "\"Trebuchet MS\", sans-serif": "Trebuchet MS",
+      "Verdana, sans-serif": "Verdana",
+      "Georgia, serif": "Georgia"
+    }
+  },
+  "replyFontWeight": {
+    "type": "dropdown",
+    "label": "Reply Preview Weight",
+    "value": "400",
+    "options": {
+      "100": "Thin 100",
+      "200": "Extra Light 200",
+      "300": "Light 300",
+      "400": "Regular 400",
+      "500": "Medium 500",
+      "600": "Semi Bold 600",
+      "700": "Bold 700",
+      "800": "Extra Bold 800",
+      "900": "Black 900"
+    }
+  },
+  "replyFontStyle": {
+    "type": "dropdown",
+    "label": "Reply Preview Style",
+    "value": "normal",
+    "options": {
+      "normal": "Normal",
+      "italic": "Italic"
+    }
+  },
+  "chatScale": {
+    "type": "number",
+    "label": "Chat Scale",
+    "value": 1.15,
+    "min": 0.5,
+    "max": 3,
+    "step": 0.05
+  },
+  "maxMessageWidth": {
+    "type": "number",
+    "label": "Maximum Message Width (%)",
+    "value": 40,
+    "min": 10,
+    "max": 100,
+    "step": 1
+  },
+  "showProfilePictures": {
+    "type": "checkbox",
+    "label": "Show Profile Pictures",
+    "value": true
+  },
+  "showBadges": {
+    "type": "checkbox",
+    "label": "Show Badges",
+    "value": true
+  },
+  "maxBadges": {
+    "type": "number",
+    "label": "Maximum Badges Per Message",
+    "value": 4,
+    "min": 1,
+    "max": 20,
+    "step": 1
+  },
+  "showSubscriberBadges": {
+    "type": "checkbox",
+    "label": "Show Subscriber Badges",
+    "value": true
+  },
+  "showSevenTVBadges": {
+    "type": "checkbox",
+    "label": "Show 7TV Badges",
+    "value": true
+  },
+  "showChatterinoBadges": {
+    "type": "checkbox",
+    "label": "Show Chatterino Badges",
+    "value": true
+  },
+  "showFFZBadges": {
+    "type": "checkbox",
+    "label": "Show FFZ Badges",
+    "value": true
+  },
+  "showOtherBadges": {
+    "type": "checkbox",
+    "label": "Show Selectable Global / Channel Badges",
+    "value": true
+  },
+  "showModeratorBadges": {
+    "type": "checkbox",
+    "label": "Show Moderator Badges",
+    "value": true
+  },
+  "showVIPBadges": {
+    "type": "checkbox",
+    "label": "Show VIP Badges",
+    "value": true
+  },
+  "showBroadcasterBadges": {
+    "type": "checkbox",
+    "label": "Show Broadcaster / Streamer Badges",
+    "value": true
+  },
+  "showFounderBadges": {
+    "type": "checkbox",
+    "label": "Show Founder Badges",
+    "value": true
+  },
+  "showVerifiedBadges": {
+    "type": "checkbox",
+    "label": "Show Verified Badges",
+    "value": true
+  },
+  "showOGBadges": {
+    "type": "checkbox",
+    "label": "Show OG Badges",
+    "value": true
+  },
+  "showGifterBadges": {
+    "type": "checkbox",
+    "label": "Show Sub Gifter Badges",
+    "value": true
+  },
+  "showStaffBadges": {
+    "type": "checkbox",
+    "label": "Show Staff / Admin Badges",
+    "value": true
+  },
+  "enableCreatorBadgeOverrides": {
+    "type": "checkbox",
+    "label": "Enable Creator-Only Badge Overrides",
+    "value": true
+  },
+  "creatorBadgeUsername": {
+    "type": "text",
+    "label": "Creator Badge Username",
+    "value": "marufps"
+  },
+  "creatorShowProfilePictures": {
+    "type": "checkbox",
+    "label": "Creator: Show Profile Picture",
+    "value": true
+  },
+  "creatorShowBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Badges",
+    "value": true
+  },
+  "creatorMaxBadges": {
+    "type": "number",
+    "label": "Creator: Maximum Badges Per Message",
+    "value": 4,
+    "min": 1,
+    "max": 20,
+    "step": 1
+  },
+  "creatorShowSubscriberBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Subscriber Badges",
+    "value": true
+  },
+  "creatorShowSevenTVBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show 7TV Badges",
+    "value": true
+  },
+  "creatorShowChatterinoBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Chatterino Badges",
+    "value": true
+  },
+  "creatorShowFFZBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show FFZ Badges",
+    "value": true
+  },
+  "creatorShowOtherBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Selectable Global / Channel Badges",
+    "value": true
+  },
+  "creatorShowModeratorBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Moderator Badges",
+    "value": true
+  },
+  "creatorShowVIPBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show VIP Badges",
+    "value": true
+  },
+  "creatorShowBroadcasterBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Broadcaster / Streamer Badges",
+    "value": true
+  },
+  "creatorShowFounderBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Founder Badges",
+    "value": true
+  },
+  "creatorShowVerifiedBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Verified Badges",
+    "value": true
+  },
+  "creatorShowOGBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show OG Badges",
+    "value": true
+  },
+  "creatorShowGifterBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Sub Gifter Badges",
+    "value": true
+  },
+  "creatorShowStaffBadges": {
+    "type": "checkbox",
+    "label": "Creator: Show Staff / Admin Badges",
+    "value": true
+  },
+  "showReplyIndicator": {
+    "type": "checkbox",
+    "label": "Show Twitch Reply Preview",
+    "value": true
+  },
+  "showEmotePop": {
+    "type": "checkbox",
+    "label": "Enlarge Emote-Only Messages",
+    "value": true
+  },
+  "twitchGifSizePercent": {
+    "type": "number",
+    "label": "Twitch GIPHY Size (%) — 100 = Current Size",
+    "value": 100,
+    "min": 10,
+    "max": 200,
+    "step": 5
+  },
+  "highlightFirstMessage": {
+    "type": "checkbox",
+    "label": "Highlight First-Time Twitch Messages",
+    "value": true
+  },
+  "usernameSeparator": {
+    "type": "text",
+    "label": "Username Separator",
+    "value": ":"
+  },
+  "badgeSpacing": {
+    "type": "number",
+    "label": "Space Between Badges (px)",
+    "value": 0,
+    "min": 0,
+    "max": 12,
+    "step": 1
+  },
+  "profilePictureBadgeSpacing": {
+    "type": "number",
+    "label": "Profile Picture to First Badge Spacing (px)",
+    "value": 2,
+    "min": 0,
+    "max": 12,
+    "step": 1
+  },
+  "replyPreviewLength": {
+    "type": "number",
+    "label": "Reply Preview Length",
+    "value": 45,
+    "min": 10,
+    "max": 200,
+    "step": 1
+  },
+  "debugLevel": {
+    "type": "dropdown",
+    "label": "Debug Logging",
+    "value": "off",
+    "options": {
+      "off": "Off",
+      "basic": "Basic",
+      "verbose": "Verbose",
+      "insane": "Insane"
+    }
+  }
+}
