@@ -1,1 +1,0 @@
-//Sound effects for widgets.
