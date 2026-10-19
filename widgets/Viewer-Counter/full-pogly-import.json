@@ -1,0 +1,155 @@
+{
+  "widgetName": "Combined Viewer Count test",
+  "widgetWidth": 336,
+  "widgetHeight": 83,
+  "headerTag": "",
+  "bodyTag": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n<link\r\n  href=\"https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Audiowide&family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Bebas+Neue&family=Bungee&family=Graduate&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap\"\r\n  rel=\"stylesheet\">\r\n<div id=\"scaleStage\">\r\n  <div id=\"viewerWidget\" class=\"viewer-widget boxed\">\r\n    <div id=\"platformIcons\" class=\"platform-icons\"></div>\r\n    <div id=\"viewerTotal\" class=\"viewer-total\">0</div>\r\n  </div>\r\n</div>",
+  "styleTag": "html,\r\nbody {\r\n  margin: 0;\r\n  padding: 0;\r\n  overflow: hidden;\r\n  background: transparent;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\nbody {\r\n  position: relative;\r\n}\r\n\r\n* {\r\n  box-sizing: border-box;\r\n}\r\n\r\n#scaleStage {\r\n  position: absolute;\r\n  left: 50%;\r\n  top: 50%;\r\n  width: max-content;\r\n  height: max-content;\r\n  padding: 8px;\r\n  transform-origin: center center;\r\n  will-change: transform;\r\n}\r\n\r\n.viewer-widget {\r\n  --widget-scale: 1;\r\n  --box-opacity: .58;\r\n  --box-blur: 8px;\r\n  --box-radius: 12px;\r\n  --viewer-font-size: 42px;\r\n  --icon-size: 36px;\r\n  --icon-gap: 0px;\r\n  --shadow-color: rgba(0, 0, 0, .65);\r\n  --shadow-blur: 4px;\r\n  --shadow-x: 0px;\r\n  --shadow-y: 2px;\r\n\r\n  display: inline-flex;\r\n  align-items: center;\r\n  width: max-content;\r\n  max-width: 100%;\r\n  min-width: 0;\r\n\r\n  gap: calc(9px * var(--widget-scale));\r\n\r\n  padding:\r\n    calc(10px * var(--widget-scale)) calc(15px * var(--widget-scale));\r\n\r\n  color: #fff;\r\n  white-space: nowrap;\r\n  transform-origin: top left;\r\n\r\n  transition:\r\n    background-color .2s ease,\r\n    backdrop-filter .2s ease,\r\n    padding .2s ease,\r\n    border-radius .2s ease;\r\n}\r\n\r\n.viewer-widget.boxed {\r\n  background: rgba(0, 0, 0, var(--box-opacity));\r\n  backdrop-filter: blur(var(--box-blur));\r\n  -webkit-backdrop-filter: blur(var(--box-blur));\r\n  border-radius: var(--box-radius);\r\n}\r\n\r\n.viewer-widget.minimal {\r\n  background: transparent;\r\n  backdrop-filter: none;\r\n  -webkit-backdrop-filter: none;\r\n  border-radius: 0;\r\n  padding: 0;\r\n}\r\n\r\n.platform-icons {\r\n  display: inline-flex;\r\n  align-items: center;\r\n  flex: 0 0 auto;\r\n}\r\n\r\n.platform-icon-slot+.platform-icon-slot {\r\n  margin-left: calc(var(--icon-gap) * var(--widget-scale));\r\n}\r\n\r\n.platform-icon-slot {\r\n  position: relative;\r\n  display: block;\r\n  width: calc(var(--icon-size) * var(--widget-scale));\r\n  height: calc(var(--icon-size) * var(--widget-scale));\r\n  flex: 0 0 auto;\r\n}\r\n\r\n.platform-icon {\r\n  position: absolute;\r\n  inset: 0;\r\n  display: block;\r\n  width: 100%;\r\n  height: 100%;\r\n  object-fit: contain;\r\n\r\n  filter: drop-shadow(var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-color));\r\n}\r\n\r\n.viewer-total {\r\n  font-size: calc(var(--viewer-font-size) * var(--widget-scale));\r\n  font-weight: 900;\r\n  line-height: 1;\r\n  letter-spacing: -.035em;\r\n  color: #fff;\r\n\r\n  text-shadow:\r\n    var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-color);\r\n\r\n  font-variant-numeric: tabular-nums;\r\n}\r\n\r\n.viewer-widget.loading {\r\n  opacity: .8;\r\n}\r\n\r\n.viewer-widget.no-live .platform-icons {\r\n  display: none;\r\n}\r\n\r\n@media (prefers-reduced-motion: reduce) {\r\n  .viewer-widget {\r\n    transition: none;\r\n  }\r\n}",
+  "scriptTag": "const ICON_URLS = {\n  twitch: \"https://github.com/MaruFPS/MarusWidgets/blob/main/widget%20assets/twitch.png?raw=true\",\n  kick: \"https://github.com/MaruFPS/MarusWidgets/blob/main/widget%20assets/kick.png?raw=true\",\n  youtube: \"https://github.com/MaruFPS/MarusWidgets/blob/main/widget%20assets/ytv4.png?raw=true\"\n};\n\nconst PLATFORM_LABELS = {\n  twitch: \"Twitch\",\n  kick: \"Kick\",\n  youtube: \"YouTube\"\n};\n\nconst PLATFORM_ORDER = [\"twitch\", \"kick\", \"youtube\"];\n\nconst FONT_MAP = {\n  \"Archivo Black\": { family: \"Archivo Black\", weight: 400 },\n  \"Anton\": { family: \"Anton\", weight: 400 },\n  \"Audiowide\": { family: \"Audiowide\", weight: 400 },\n  \"Barlow Condensed\": { family: \"Barlow Condensed\", weight: 900 },\n  \"Bebas Neue\": { family: \"Bebas Neue\", weight: 400 },\n  \"Bungee\": { family: \"Bungee\", weight: 400 },\n  \"Graduate\": { family: \"Graduate\", weight: 400 },\n  \"Inter\": { family: \"Inter\", weight: 900 },\n  \"Montserrat\": { family: \"Montserrat\", weight: 900 },\n  \"Nunito Sans\": { family: \"Nunito Sans\", weight: 900 },\n  \"Orbitron\": { family: \"Orbitron\", weight: 900 },\n  \"Outfit\": { family: \"Outfit\", weight: 900 },\n  \"Poppins\": { family: \"Poppins\", weight: 900 },\n  \"Rubik\": { family: \"Rubik\", weight: 900 }\n};\n\nconst settings = {\n  worker_url: \"{worker_url}\",\n  twitch: \"{twitch}\",\n  kick: \"{kick}\",\n  youtube: \"{youtube}\",\n  style: \"{style}\",\n  scale: \"{scale}\",\n  font: \"{font}\",\n  font_size: \"{font_size}\",\n  icon_size: \"{icon_size}\",\n  icon_gap: \"{icon_gap}\",\n  update_seconds: \"{update_seconds}\",\n  animation_ms: \"{animation_ms}\",\n  box_opacity: \"{box_opacity}\",\n  box_blur: \"{box_blur}\",\n  box_radius: \"{box_radius}\",\n  shadow: \"{shadow}\",\n  shadow_color: \"{shadow_color}\",\n  shadow_blur: \"{shadow_blur}\",\n  shadow_x: \"{shadow_x}\",\n  shadow_y: \"{shadow_y}\"\n};\n\nlet displayedTotal = 0;\nlet latestTotal = 0;\nlet pollTimer = null;\nlet pollGeneration = 0;\nlet animationFrame = null;\nlet requestController = null;\nlet hasLoadedOnce = false;\nlet fitFrame = null;\nlet lastRenderedLength = 0;\nlet stageResizeObserver = null;\n\nfunction fitWidgetToCanvas() {\n  const stage = document.getElementById(\"scaleStage\");\n  if (!stage) return;\n\n  const viewportWidth = Math.max(\n    1,\n    document.documentElement.clientWidth || window.innerWidth || 1\n  );\n\n  const viewportHeight = Math.max(\n    1,\n    document.documentElement.clientHeight || window.innerHeight || 1\n  );\n\n  const naturalWidth = Math.max(1, stage.offsetWidth);\n  const naturalHeight = Math.max(1, stage.offsetHeight);\n\n  const fitScale = Math.min(\n    viewportWidth / naturalWidth,\n    viewportHeight / naturalHeight\n  );\n\n  const safeScale = clamp(fitScale, .05, 20, 1);\n\n  stage.style.transform =\n    \"translate(-50%,-50%) scale(\" + safeScale + \")\";\n}\n\nfunction scheduleCanvasFit() {\n  if (fitFrame) {\n    cancelAnimationFrame(fitFrame);\n  }\n\n  fitFrame = requestAnimationFrame(() => {\n    fitFrame = null;\n    fitWidgetToCanvas();\n  });\n}\n\nfunction startCanvasFit() {\n  const widget = document.getElementById(\"viewerWidget\");\n\n  if (typeof ResizeObserver === \"function\") {\n    stageResizeObserver = new ResizeObserver(scheduleCanvasFit);\n    stageResizeObserver.observe(document.documentElement);\n\n    if (widget) {\n      stageResizeObserver.observe(widget);\n    }\n  }\n\n  window.addEventListener(\"resize\", scheduleCanvasFit);\n  scheduleCanvasFit();\n}\n\nfunction clamp(value, min, max, fallback) {\n  const number = Number(value);\n  if (!Number.isFinite(number)) return fallback;\n  return Math.min(max, Math.max(min, number));\n}\n\nfunction cleanWorkerUrl(value) {\n  return String(value || \"\").trim().replace(/\\/$/, \"\");\n}\n\nfunction cleanUsername(value) {\n  return String(value || \"\").trim();\n}\n\nfunction getUpdateMilliseconds() {\n  return clamp(settings.update_seconds, 10, 300, 35) * 1000;\n}\n\nfunction getAnimationMilliseconds() {\n  return clamp(settings.animation_ms, 100, 5000, 900);\n}\n\nfunction applySelectedFont() {\n  const totalElement = document.getElementById(\"viewerTotal\");\n  if (!totalElement) return;\n\n  const selected = FONT_MAP[settings.font] || FONT_MAP[\"Archivo Black\"];\n  const family = '\"' + selected.family + '\",Arial,Helvetica,sans-serif';\n\n  totalElement.style.fontFamily = family;\n  totalElement.style.fontWeight = String(selected.weight);\n\n  if (document.fonts && typeof document.fonts.load === \"function\") {\n    const fontSize = clamp(settings.font_size, 10, 150, 42);\n    const request = selected.weight + \" \" + fontSize + \"px \\\"\" + selected.family + \"\\\"\";\n\n    document.fonts.load(request)\n      .then(scheduleCanvasFit)\n      .catch(() => { });\n  } else {\n    scheduleCanvasFit();\n  }\n}\n\nfunction applyAppearance() {\n  const widget = document.getElementById(\"viewerWidget\");\n  if (!widget) return;\n\n  const scale = clamp(settings.scale, .25, 4, 1);\n  const opacity = clamp(settings.box_opacity, 0, 1, .58);\n  const blur = clamp(settings.box_blur, 0, 40, 8);\n  const radius = clamp(settings.box_radius, 0, 100, 12);\n  const fontSize = clamp(settings.font_size, 10, 150, 42);\n  const iconSize = clamp(settings.icon_size, 10, 100, 36);\n  const iconGap = clamp(settings.icon_gap, -30, 40, 0);\n  const shadowEnabled = settings.shadow !== \"No\";\n  const shadowColor = shadowEnabled\n    ? String(settings.shadow_color || \"rgba(0,0,0,0.65)\")\n    : \"rgba(0,0,0,0)\";\n  const shadowBlur = clamp(settings.shadow_blur, 0, 40, 4);\n  const shadowX = clamp(settings.shadow_x, -40, 40, 0);\n  const shadowY = clamp(settings.shadow_y, -40, 40, 2);\n\n  widget.style.setProperty(\"--widget-scale\", String(scale));\n  widget.style.setProperty(\"--box-opacity\", String(opacity));\n  widget.style.setProperty(\"--box-blur\", blur + \"px\");\n  widget.style.setProperty(\"--box-radius\", radius + \"px\");\n  widget.style.setProperty(\"--viewer-font-size\", fontSize + \"px\");\n  widget.style.setProperty(\"--icon-size\", iconSize + \"px\");\n  widget.style.setProperty(\"--icon-gap\", iconGap + \"px\");\n  widget.style.setProperty(\"--shadow-color\", shadowColor);\n  widget.style.setProperty(\"--shadow-blur\", (shadowBlur * scale) + \"px\");\n  widget.style.setProperty(\"--shadow-x\", (shadowX * scale) + \"px\");\n  widget.style.setProperty(\"--shadow-y\", (shadowY * scale) + \"px\");\n\n  const boxed = settings.style !== \"Minimal\";\n  widget.classList.toggle(\"boxed\", boxed);\n  widget.classList.toggle(\"minimal\", !boxed);\n\n  applySelectedFont();\n  scheduleCanvasFit();\n}\n\nfunction buildRequestUrl() {\n  const workerUrl = cleanWorkerUrl(settings.worker_url);\n  if (!workerUrl) return null;\n\n  const url = new URL(workerUrl);\n  const twitch = cleanUsername(settings.twitch);\n  const kick = cleanUsername(settings.kick);\n  const youtube = cleanUsername(settings.youtube);\n\n  if (twitch) url.searchParams.set(\"twitch\", twitch);\n  if (kick) url.searchParams.set(\"kick\", kick);\n  if (youtube) url.searchParams.set(\"youtube\", youtube);\n\n  if (!twitch && !kick && !youtube) return null;\n\n  // Force every Pogly/browser request to be unique.\n  url.searchParams.set(\n    \"_maru\",\n    Date.now().toString() + \"-\" + Math.random().toString(36).slice(2)\n  );\n\n  return url.toString();\n}\n\nfunction renderPlatformIcons(livePlatforms) {\n  const icons = document.getElementById(\"platformIcons\");\n  const widget = document.getElementById(\"viewerWidget\");\n  if (!icons || !widget) return;\n\n  const liveSet = new Set(\n    Array.isArray(livePlatforms)\n      ? livePlatforms\n      : []\n  );\n\n  icons.innerHTML = \"\";\n\n  PLATFORM_ORDER.forEach(platform => {\n    if (!liveSet.has(platform)) return;\n\n    const slot = document.createElement(\"span\");\n    slot.className = \"platform-icon-slot \" + platform;\n\n    const image = document.createElement(\"img\");\n    image.className = \"platform-icon\";\n    image.src = ICON_URLS[platform];\n    image.alt = PLATFORM_LABELS[platform];\n    image.decoding = \"async\";\n    image.draggable = false;\n\n    slot.appendChild(image);\n    icons.appendChild(slot);\n  });\n\n  widget.classList.toggle(\n    \"no-live\",\n    icons.children.length === 0\n  );\n\n  scheduleCanvasFit();\n}\n\nfunction formatViewerCount(value) {\n  return Math.max(\n    0,\n    Math.round(Number(value) || 0)\n  ).toLocaleString(\"en-US\");\n}\n\nfunction setDisplayedTotal(value) {\n  displayedTotal = Math.max(\n    0,\n    Math.round(Number(value) || 0)\n  );\n\n  const totalElement = document.getElementById(\"viewerTotal\");\n\n  if (totalElement) {\n    const formatted = formatViewerCount(displayedTotal);\n    totalElement.textContent = formatted;\n\n    if (formatted.length !== lastRenderedLength) {\n      lastRenderedLength = formatted.length;\n      scheduleCanvasFit();\n    }\n  }\n}\n\nfunction animateTotal(nextTotal) {\n  latestTotal = Math.max(\n    0,\n    Math.round(Number(nextTotal) || 0)\n  );\n\n  if (animationFrame) {\n    cancelAnimationFrame(animationFrame);\n    animationFrame = null;\n  }\n\n  const reducedMotion =\n    window.matchMedia &&\n    window.matchMedia(\n      \"(prefers-reduced-motion: reduce)\"\n    ).matches;\n\n  const duration = reducedMotion\n    ? 0\n    : getAnimationMilliseconds();\n\n  const startValue = displayedTotal;\n  const difference = latestTotal - startValue;\n\n  if (duration <= 0 || difference === 0) {\n    setDisplayedTotal(latestTotal);\n    return;\n  }\n\n  const startTime = performance.now();\n\n  function step(now) {\n    const progress = Math.min(\n      1,\n      (now - startTime) / duration\n    );\n\n    const eased = 1 - Math.pow(1 - progress, 3);\n\n    setDisplayedTotal(\n      startValue + difference * eased\n    );\n\n    if (progress < 1) {\n      animationFrame = requestAnimationFrame(step);\n    } else {\n      animationFrame = null;\n      setDisplayedTotal(latestTotal);\n      scheduleCanvasFit();\n    }\n  }\n\n  animationFrame = requestAnimationFrame(step);\n}\n\nasync function refreshViewerCount() {\n  const widget = document.getElementById(\"viewerWidget\");\n  const requestUrl = buildRequestUrl();\n\n  if (!requestUrl) {\n    renderPlatformIcons([]);\n    animateTotal(0);\n    return;\n  }\n\n  if (requestController) {\n    requestController.abort();\n  }\n\n  requestController = new AbortController();\n\n  if (widget) {\n    widget.classList.add(\"loading\");\n  }\n\n  try {\n    const response = await fetch(requestUrl, {\n      method: \"GET\",\n      cache: \"no-store\",\n      signal: requestController.signal\n    });\n\n    if (!response.ok) {\n      throw new Error(\n        \"Viewer API returned \" + response.status\n      );\n    }\n\n    const data = await response.json();\n\n    if (!data || data.success !== true) {\n      throw new Error(\n        data?.error ||\n        \"Viewer API returned an invalid response\"\n      );\n    }\n\n    console.log(\"[Maru Viewer Poll]\", {\n      localTime: new Date().toISOString(),\n      total: data.total,\n      twitch: data.twitch?.viewers ?? null,\n      kick: data.kick?.viewers ?? null,\n      youtube: data.youtube?.viewers ?? null,\n      workerRequestStartedAt: data.debug?.requestStartedAt ?? null,\n      workerRespondedAt: data.debug?.respondedAt ?? null,\n      workerCache: data.cache ?? null\n    });\n\n    renderPlatformIcons(data.livePlatforms);\n\n    if (!hasLoadedOnce) {\n      setDisplayedTotal(0);\n      hasLoadedOnce = true;\n    }\n\n    animateTotal(data.total);\n  } catch (error) {\n    if (error?.name !== \"AbortError\") {\n      console.warn(\n        \"Viewer count refresh failed:\",\n        error\n      );\n    }\n  } finally {\n    if (widget) {\n      widget.classList.remove(\"loading\");\n    }\n  }\n}\n\nfunction schedulePollingCycle(generation, delay) {\n  if (generation !== pollGeneration) return;\n\n  if (pollTimer) {\n    clearTimeout(pollTimer);\n    pollTimer = null;\n  }\n\n  pollTimer = setTimeout(async () => {\n    pollTimer = null;\n\n    if (generation !== pollGeneration) return;\n\n    await refreshViewerCount();\n\n    if (generation !== pollGeneration) return;\n\n    schedulePollingCycle(\n      generation,\n      getUpdateMilliseconds()\n    );\n  }, Math.max(0, Number(delay) || 0));\n}\n\nfunction restartPolling(immediate = true) {\n  pollGeneration += 1;\n  const generation = pollGeneration;\n\n  if (pollTimer) {\n    clearTimeout(pollTimer);\n    pollTimer = null;\n  }\n\n  if (requestController) {\n    requestController.abort();\n    requestController = null;\n  }\n\n  if (immediate) {\n    schedulePollingCycle(generation, 0);\n  } else {\n    schedulePollingCycle(\n      generation,\n      getUpdateMilliseconds()\n    );\n  }\n}\n\nfunction onLiveVariableUpdate(name, value) {\n  if (!Object.prototype.hasOwnProperty.call(settings, name)) return;\n\n  settings[name] = value;\n  applyAppearance();\n\n  if (name === \"update_seconds\") {\n    restartPolling(false);\n    return;\n  }\n\n  if ([\n    \"worker_url\",\n    \"twitch\",\n    \"kick\",\n    \"youtube\"\n  ].includes(name)) {\n    hasLoadedOnce = false;\n    restartPolling(true);\n  }\n}\n\napplyAppearance();\nstartCanvasFit();\nrestartPolling(true);",
+  "variables": [
+    {
+      "variableName": "worker_url",
+      "variableType": 1,
+      "variableValue": "https://marus-viewer-count.evolvexdesigns.workers.dev/",
+      "variableLive": true
+    },
+    {
+      "variableName": "twitch",
+      "variableType": 1,
+      "variableValue": "hailyxalyse",
+      "variableLive": true
+    },
+    {
+      "variableName": "kick",
+      "variableType": 1,
+      "variableValue": "staticzayyy",
+      "variableLive": true
+    },
+    {
+      "variableName": "youtube",
+      "variableType": 1,
+      "variableValue": "hailyxalyselivee",
+      "variableLive": true
+    },
+    {
+      "variableName": "style",
+      "variableType": 8,
+      "variableValue": "Boxed",
+      "variableLive": true,
+      "variableOptions": [
+        "Boxed",
+        "Minimal"
+      ]
+    },
+    {
+      "variableName": "font",
+      "variableType": 8,
+      "variableValue": "Bebas Neue",
+      "variableLive": true,
+      "variableOptions": [
+        "Archivo Black",
+        "Anton",
+        "Audiowide",
+        "Barlow Condensed",
+        "Bebas Neue",
+        "Bungee",
+        "Graduate",
+        "Inter",
+        "Montserrat",
+        "Nunito Sans",
+        "Orbitron",
+        "Outfit",
+        "Poppins",
+        "Rubik"
+      ]
+    },
+    {
+      "variableName": "font_size",
+      "variableType": 1,
+      "variableValue": "35",
+      "variableLive": true
+    },
+    {
+      "variableName": "icon_size",
+      "variableType": 1,
+      "variableValue": "35",
+      "variableLive": true
+    },
+    {
+      "variableName": "icon_gap",
+      "variableType": 1,
+      "variableValue": "0",
+      "variableLive": true
+    },
+    {
+      "variableName": "scale",
+      "variableType": 1,
+      "variableValue": "1",
+      "variableLive": true
+    },
+    {
+      "variableName": "update_seconds",
+      "variableType": 1,
+      "variableValue": "35",
+      "variableLive": false
+    },
+    {
+      "variableName": "animation_ms",
+      "variableType": 1,
+      "variableValue": "900",
+      "variableLive": false
+    },
+    {
+      "variableName": "box_opacity",
+      "variableType": 1,
+      "variableValue": "0.3",
+      "variableLive": true
+    },
+    {
+      "variableName": "box_blur",
+      "variableType": 1,
+      "variableValue": "4",
+      "variableLive": true
+    },
+    {
+      "variableName": "box_radius",
+      "variableType": 1,
+      "variableValue": "12",
+      "variableLive": false
+    },
+    {
+      "variableName": "shadow",
+      "variableType": 8,
+      "variableValue": "Yes",
+      "variableLive": true,
+      "variableOptions": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "variableName": "shadow_color",
+      "variableType": 1,
+      "variableValue": "rgba(0,0,0,0.65)",
+      "variableLive": true
+    },
+    {
+      "variableName": "shadow_blur",
+      "variableType": 1,
+      "variableValue": "4",
+      "variableLive": true
+    },
+    {
+      "variableName": "shadow_x",
+      "variableType": 1,
+      "variableValue": "0",
+      "variableLive": true
+    },
+    {
+      "variableName": "shadow_y",
+      "variableType": 1,
+      "variableValue": "0",
+      "variableLive": true
+    }
+  ]
+}

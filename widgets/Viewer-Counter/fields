@@ -1,0 +1,146 @@
+[
+  {
+    "variableName": "worker_url",
+    "variableType": 1,
+    "variableValue": "https://marus-viewer-count.evolvexdesigns.workers.dev/",
+    "variableLive": true
+  },
+  {
+    "variableName": "twitch",
+    "variableType": 1,
+    "variableValue": "hailyxalyse",
+    "variableLive": true
+  },
+  {
+    "variableName": "kick",
+    "variableType": 1,
+    "variableValue": "staticzayyy",
+    "variableLive": true
+  },
+  {
+    "variableName": "youtube",
+    "variableType": 1,
+    "variableValue": "hailyxalyselivee",
+    "variableLive": true
+  },
+  {
+    "variableName": "style",
+    "variableType": 8,
+    "variableValue": "Boxed",
+    "variableLive": true,
+    "variableOptions": [
+      "Boxed",
+      "Minimal"
+    ]
+  },
+  {
+    "variableName": "font",
+    "variableType": 8,
+    "variableValue": "Bebas Neue",
+    "variableLive": true,
+    "variableOptions": [
+      "Archivo Black",
+      "Anton",
+      "Audiowide",
+      "Barlow Condensed",
+      "Bebas Neue",
+      "Bungee",
+      "Graduate",
+      "Inter",
+      "Montserrat",
+      "Nunito Sans",
+      "Orbitron",
+      "Outfit",
+      "Poppins",
+      "Rubik"
+    ]
+  },
+  {
+    "variableName": "font_size",
+    "variableType": 1,
+    "variableValue": "35",
+    "variableLive": true
+  },
+  {
+    "variableName": "icon_size",
+    "variableType": 1,
+    "variableValue": "35",
+    "variableLive": true
+  },
+  {
+    "variableName": "icon_gap",
+    "variableType": 1,
+    "variableValue": "0",
+    "variableLive": true
+  },
+  {
+    "variableName": "scale",
+    "variableType": 1,
+    "variableValue": "1",
+    "variableLive": true
+  },
+  {
+    "variableName": "update_seconds",
+    "variableType": 1,
+    "variableValue": "35",
+    "variableLive": false
+  },
+  {
+    "variableName": "animation_ms",
+    "variableType": 1,
+    "variableValue": "900",
+    "variableLive": false
+  },
+  {
+    "variableName": "box_opacity",
+    "variableType": 1,
+    "variableValue": "0.3",
+    "variableLive": true
+  },
+  {
+    "variableName": "box_blur",
+    "variableType": 1,
+    "variableValue": "4",
+    "variableLive": true
+  },
+  {
+    "variableName": "box_radius",
+    "variableType": 1,
+    "variableValue": "12",
+    "variableLive": false
+  },
+  {
+    "variableName": "shadow",
+    "variableType": 8,
+    "variableValue": "Yes",
+    "variableLive": true,
+    "variableOptions": [
+      "Yes",
+      "No"
+    ]
+  },
+  {
+    "variableName": "shadow_color",
+    "variableType": 1,
+    "variableValue": "rgba(0,0,0,0.65)",
+    "variableLive": true
+  },
+  {
+    "variableName": "shadow_blur",
+    "variableType": 1,
+    "variableValue": "4",
+    "variableLive": true
+  },
+  {
+    "variableName": "shadow_x",
+    "variableType": 1,
+    "variableValue": "0",
+    "variableLive": true
+  },
+  {
+    "variableName": "shadow_y",
+    "variableType": 1,
+    "variableValue": "0",
+    "variableLive": true
+  }
+]

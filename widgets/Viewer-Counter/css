@@ -1,0 +1,134 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#scaleStage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max-content;
+  height: max-content;
+  padding: 8px;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.viewer-widget {
+  --widget-scale: 1;
+  --box-opacity: .58;
+  --box-blur: 8px;
+  --box-radius: 12px;
+  --viewer-font-size: 42px;
+  --icon-size: 36px;
+  --icon-gap: 0px;
+  --shadow-color: rgba(0, 0, 0, .65);
+  --shadow-blur: 4px;
+  --shadow-x: 0px;
+  --shadow-y: 2px;
+
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+
+  gap: calc(9px * var(--widget-scale));
+
+  padding:
+    calc(10px * var(--widget-scale)) calc(15px * var(--widget-scale));
+
+  color: #fff;
+  white-space: nowrap;
+  transform-origin: top left;
+
+  transition:
+    background-color .2s ease,
+    backdrop-filter .2s ease,
+    padding .2s ease,
+    border-radius .2s ease;
+}
+
+.viewer-widget.boxed {
+  background: rgba(0, 0, 0, var(--box-opacity));
+  backdrop-filter: blur(var(--box-blur));
+  -webkit-backdrop-filter: blur(var(--box-blur));
+  border-radius: var(--box-radius);
+}
+
+.viewer-widget.minimal {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.platform-icons {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.platform-icon-slot+.platform-icon-slot {
+  margin-left: calc(var(--icon-gap) * var(--widget-scale));
+}
+
+.platform-icon-slot {
+  position: relative;
+  display: block;
+  width: calc(var(--icon-size) * var(--widget-scale));
+  height: calc(var(--icon-size) * var(--widget-scale));
+  flex: 0 0 auto;
+}
+
+.platform-icon {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  filter: drop-shadow(var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-color));
+}
+
+.viewer-total {
+  font-size: calc(var(--viewer-font-size) * var(--widget-scale));
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.035em;
+  color: #fff;
+
+  text-shadow:
+    var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-color);
+
+  font-variant-numeric: tabular-nums;
+}
+
+.viewer-widget.loading {
+  opacity: .8;
+}
+
+.viewer-widget.no-live .platform-icons {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewer-widget {
+    transition: none;
+  }
+}

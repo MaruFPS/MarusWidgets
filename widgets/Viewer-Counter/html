@@ -1,0 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Audiowide&family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Bebas+Neue&family=Bungee&family=Graduate&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+  rel="stylesheet">
+<div id="scaleStage">
+  <div id="viewerWidget" class="viewer-widget boxed">
+    <div id="platformIcons" class="platform-icons"></div>
+    <div id="viewerTotal" class="viewer-total">0</div>
+  </div>
+</div>
