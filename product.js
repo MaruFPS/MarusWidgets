@@ -1,4 +1,4 @@
-const VIEWER_IMPORT_URL = 'widgets/Viewer-Counter/full-pogly-import.json';
+const VIEWER_IMPORT_URL = 'widgets/Viewer-Counter/Viewer-Counter.pogly.json';
 const VIEWER_CODE_KEYS = new Set([
   'code/viewer/html.txt',
   'code/viewer/css.txt',
@@ -8,10 +8,10 @@ const VIEWER_CODE_KEYS = new Set([
 ]);
 
 const CHAT_CODE_FILES = {
-  'code/chat/html.txt': 'widgets/mChat/html',
-  'code/chat/css.txt': 'widgets/mChat/css',
-  'code/chat/js.txt': 'widgets/mChat/js',
-  'code/chat/fields.txt': 'widgets/mChat/fields'
+  'code/chat/html.txt': 'widgets/mChat/mChat.html',
+  'code/chat/css.txt': 'widgets/mChat/mChat.css',
+  'code/chat/js.txt': 'widgets/mChat/mChat.js',
+  'code/chat/fields.txt': 'widgets/mChat/mChat.json'
 };
 
 document.querySelectorAll('[data-code-panel]').forEach(panel => {
