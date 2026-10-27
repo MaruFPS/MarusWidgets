@@ -214,6 +214,8 @@ let highlightFirstMessage = true;
 let usernameSeparator = ":";
 let badgeSpacing = 0;
 let profilePictureBadgeSpacing = 2;
+let platformIconSpacing = 0;
+let preUsernameSpacing = 1;
 let replyPreviewLength = 45;
 
 let messageLifetimeSeconds = 7;
@@ -2415,7 +2417,6 @@ async function attachChatterinoBadge(messageEl, username, twitchUserId) {
       if (!image) return;
       image.addEventListener("error", () => image.remove(), { once: true });
       holder.appendChild(image);
-      syncProfilePictureBadgeSpacing(messageEl);
     };
 
     appendCachedBadge();
@@ -2515,7 +2516,6 @@ async function attachFFZBadges(messageEl, username, twitchUserId, chatterinoRead
         image.addEventListener("error", () => image.remove(), { once: true });
         holder.appendChild(image);
       }
-      syncProfilePictureBadgeSpacing(messageEl);
     };
 
     const loading = loadFFZBadges();
@@ -3394,27 +3394,30 @@ function fadeAndRemoveMessage(
   }, { once: true });
 }
 
-function syncProfilePictureBadgeSpacing(messageEl) {
-  const holder = messageEl?.querySelector?.(".badges");
-  const profilePictureEl = holder?.querySelector?.(".profile-picture");
-  if (!holder || !profilePictureEl) return;
-
+function syncBadgeSpacing(holder) {
+  if (!holder) return;
   const children = Array.from(holder.children);
-  const profileIndex = children.indexOf(profilePictureEl);
-  const hasBadgeAfterProfile = children
-    .slice(profileIndex + 1)
-    .some(element => element.classList?.contains("badge"));
+  const visible = children.filter(element =>
+    !element.hidden && getComputedStyle(element).display !== "none"
+  );
 
-  /*
-   * The flex gap belongs to badge-to-badge spacing. Compensate for that gap
-   * on the PFP itself so this field controls the TOTAL PFP -> first-badge
-   * distance independently, including values smaller than badgeSpacing.
-   */
-  const adjustment = hasBadgeAfterProfile
-    ? profilePictureBadgeSpacing - badgeSpacing
-    : 0;
+  children.forEach(element => element.removeAttribute("data-spacing-before"));
+  holder.classList.toggle("has-visuals", visible.length > 0);
 
-  profilePictureEl.style.setProperty("margin-right", `${adjustment}px`, "important");
+  visible.forEach((element, index) => {
+    const previous = visible[index - 1];
+    if (!previous) return;
+
+    if (previous.classList.contains("platform-icon")) {
+      element.dataset.spacingBefore = "platform";
+    } else if (element.classList.contains("badge")) {
+      if (previous.matches(".profile-picture, .shared-chat-source-pfp")) {
+        element.dataset.spacingBefore = "profile-picture";
+      } else if (previous.classList.contains("badge")) {
+        element.dataset.spacingBefore = "badge";
+      }
+    }
+  });
 }
 
 async function addMessage({
@@ -3518,10 +3521,7 @@ async function addMessage({
         : ""
     }
 
-    <span
-      class="badges"
-      style="--badge-spacing:${badgeSpacing}px;gap:var(--badge-spacing);"
-    >
+    <span class="badges">
       ${
         getPlatformIcon(platform)
           ? `<img
@@ -3594,8 +3594,6 @@ async function addMessage({
       ${parsedMessage}
     </span>
   `;
-
-  syncProfilePictureBadgeSpacing(messageEl);
 
   /*
    * A 7TV custom avatar should never leave a broken-image icon in the overlay.
@@ -3674,6 +3672,27 @@ async function addMessage({
   }
 
   chatContainer.appendChild(messageEl);
+
+  const badgeHolder = messageEl.querySelector(".badges");
+  syncBadgeSpacing(badgeHolder);
+
+  // Recompute neighbors after late badge insertion/removal or visibility changes.
+  // Ignore our own holder class and data attributes to avoid observer loops.
+  const badgeObserver = new MutationObserver(records => {
+    if (records.some(record =>
+      record.target === badgeHolder
+        ? record.type === "childList"
+        : record.target.parentElement === badgeHolder
+    )) {
+      syncBadgeSpacing(badgeHolder);
+    }
+  });
+  badgeObserver.observe(badgeHolder, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["class", "style", "hidden"]
+  });
 
   /*
    * Live testing proved StreamElements Clear Chat can fail to emit a usable
@@ -4465,6 +4484,18 @@ function applyWidgetFields(fieldData = {}) {
     12,
     profilePictureBadgeSpacing
   );
+  platformIconSpacing = clampNumber(
+    fieldData.platformIconSpacing,
+    0,
+    12,
+    platformIconSpacing
+  );
+  preUsernameSpacing = clampNumber(
+    fieldData.preUsernameSpacing,
+    0,
+    20,
+    preUsernameSpacing
+  );
   replyPreviewLength = Math.max(
     10,
     Number(fieldData.replyPreviewLength) || replyPreviewLength
@@ -4560,6 +4591,13 @@ function applyWidgetFields(fieldData = {}) {
   ).trim();
 
   const root = document.documentElement;
+
+  // Concatenation avoids StreamElements treating JS interpolation as field tokens.
+  // Inherited variables also keep existing and asynchronously updated rows in sync.
+  root.style.setProperty("--badge-spacing", badgeSpacing + "px");
+  root.style.setProperty("--profile-picture-badge-spacing", profilePictureBadgeSpacing + "px");
+  root.style.setProperty("--platform-icon-spacing", platformIconSpacing + "px");
+  root.style.setProperty("--pre-username-spacing", preUsernameSpacing + "px");
 
   if (fieldData.fontSize) {
     root.style.setProperty("--font-size", `${Number(fieldData.fontSize)}px`);

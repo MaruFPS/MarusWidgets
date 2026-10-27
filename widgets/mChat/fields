@@ -594,6 +594,22 @@
     "max": 12,
     "step": 1
   },
+  "platformIconSpacing": {
+    "type": "number",
+    "label": "Platform Icon to Next Element Spacing (px)",
+    "value": 0,
+    "min": 0,
+    "max": 12,
+    "step": 1
+  },
+  "preUsernameSpacing": {
+    "type": "number",
+    "label": "Final Icon / Profile Picture / Badge to Username Spacing (px)",
+    "value": 1,
+    "min": 0,
+    "max": 20,
+    "step": 1
+  },
   "replyPreviewLength": {
     "type": "number",
     "label": "Reply Preview Length",

@@ -102,9 +102,9 @@ body {
 .badges {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 0;
   vertical-align: middle;
-  margin-right: 1px;
+  margin-right: 0;
 }
 
 .badge {
@@ -112,7 +112,6 @@ body {
   width: auto;
   display: inline-block;
   vertical-align: middle;
-  margin-right: 2px;
 }
 
 
@@ -123,7 +122,6 @@ body {
   display: inline-block;
   vertical-align: middle;
   flex-shrink: 0;
-  margin-right: 2px;
 }
 
 .profile-picture {
@@ -132,7 +130,6 @@ body {
   border-radius: 50%;
   object-fit: cover;
   vertical-align: middle;
-  gap: 3px;
 }
 
 .username-wrap {
@@ -413,7 +410,6 @@ body {
   display: inline-block;
   vertical-align: middle;
   flex-shrink: 0;
-  margin-right: 2px;
 }
 
 
@@ -440,7 +436,6 @@ body {
   vertical-align: middle;
   line-height: 0;
   overflow: visible;
-  margin-right: 2px;
 }
 
 .kick-badge-inline > svg,
@@ -500,34 +495,35 @@ body {
   flex: 0 0 0.90em !important;
 }
 
-/* ===== Badge spacing normalization =====
- * The Badge Spacing control is now the ONE source of truth for spacing
- * between the platform icon, profile picture, and every badge.
- *
- * Individual badge classes previously had their own 2px right margins,
- * which meant setting Badge Spacing to 0 still left visible gaps.
+/* ===== Independent badge-row spacing =====
+ * JS marks each visible element's relationship to its previous neighbor.
+ * Shared Chat source PFPs are profile pictures, never regular badges.
+ * Keep these margins authoritative over individual badge styles.
  */
-.badges {
-  gap: 0;
-  margin-right: 1px; /* exactly 1px between the final badge and username */
+.badges.has-visuals {
+  margin-right: var(--pre-username-spacing, 1px);
 }
 
-.badges > .platform-icon,
-.badges > .shared-chat-source-pfp,
-.badges > .profile-picture,
-.badges > .badge,
-.badges > .seventv-badge,
-.badges > .kick-badge,
-.badges > .youtube-role-badge,
-.badges > .kick-badge-inline {
+.badges > * {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-/* Profile-picture-to-badge spacing is applied directly in JS to the
- * profile picture after the actual badge row is composed. This keeps it
- * independent from badge-to-badge flex gap and works with async badges.
- */
+.badges > [hidden] {
+  display: none !important;
+}
+
+.badges > [data-spacing-before="badge"] {
+  margin-left: var(--badge-spacing, 0px) !important;
+}
+
+.badges > [data-spacing-before="profile-picture"] {
+  margin-left: var(--profile-picture-badge-spacing, 2px) !important;
+}
+
+.badges > [data-spacing-before="platform"] {
+  margin-left: var(--platform-icon-spacing, 0px) !important;
+}
 
 /* ===== Twitch GIPHY chat messages =====
  * Twitch supplies GIPHY metadata through the StreamElements `gifs` tag.
